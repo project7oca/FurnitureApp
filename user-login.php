@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -41,6 +45,47 @@
 </head>
 
 <body class="user-login blog">
+
+<?php
+
+$connect = mysqli_connect("localhost", "root", "", "project7");
+
+$status = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $email = stripslashes($_POST['email']);
+      $password = stripslashes($_POST['password']);
+      $encryptedPassword = md5($password);
+
+      if (empty($email) || empty($password)) {
+            $status = "All fields are required";
+      } else {
+            $email = mysqli_real_escape_string($connect, $_POST["email"]);
+            $password = mysqli_real_escape_string($connect, isset($_POST["password"]));
+
+            $login = "SELECT * FROM users WHERE email = '$email' AND password = '$encryptedPassword' LIMIT 1";
+
+            $result = mysqli_query($connect, $login);
+
+            $loggedUser = mysqli_fetch_assoc($result);
+            if(mysqli_num_rows($result) == 1) {
+
+                  if($loggedUser['userRole'] == 1) {
+                  $_SESSION['userRole'] = true;
+                  $_SESSION['name'] = $loggedUser['fullname'];
+                  header("location: http://localhost/p7/FurnitureApp/admin");
+                  } else {
+                  $_SESSION['name'] = $loggedUser['fullname'];
+                  $_SESSION['email'] = $loggedUser['email'];
+                  $_SESSION['phone'] = $loggedUser['phone'];
+                  header("location: http://localhost/p7/FurnitureApp/");
+                  }
+            } else {
+                  echo '<script>alert("Email or Password is Incorrect")</script>';
+            }
+      }
+}
+?>
+
     <header>
 
         <!-- header left mobie -->
@@ -437,22 +482,15 @@
                     <div class="container">
                         <h1 class="text-center title-page">Log In</h1>
                         <div class="login-form">
-                            <form id="customer-form" action="#" method="post">
+                            <form id="customer-form" action="user-login.php" method="POST">
                                 <div>
                                     <input type="hidden" name="back" value="my-account">
                                     <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Email">
+                                        <input class="form-control" name="email" type="email" placeholder=" Email" required>
                                     </div>
                                     <div class="form-group no-gutters">
                                         <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div class="no-gutters text-center">
-                                        <div class="forgot-password">
-                                            <a href="user-reset-password.html" rel="nofollow">
-                                                Forgot your password?
-                                            </a>
+                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password" required>
                                         </div>
                                     </div>
                                 </div>
@@ -462,6 +500,7 @@
                                         <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                                             Sign in
                                         </button>
+                                        <?php echo $status ?>
                                     </div>
                                 </div>
                             </form>
