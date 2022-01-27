@@ -72,6 +72,7 @@ if (isLoggedIn()) {
             $email = stripslashes($_POST['email']);
             $phone = stripslashes($_POST['phone']);
             $password = stripslashes($_POST['password']);
+            $password2 = stripslashes($_POST['password2']);
             $encryptedPassword = md5($password);
             $userRole = 0;
 
@@ -82,7 +83,7 @@ if (isLoggedIn()) {
             $res_e = mysqli_query($connect, $sql_e); */
 
             // Validation for Sign up
-            if(empty($fullname) || empty($email) || empty($password)) { 
+            if(empty($fullname) || empty($email) || empty($password) || empty($phone)) { 
                   $status = "All fields are required";
             } else {
                   if(strlen($fullname) <= 3 || strlen($fullname) >= 18 || !preg_match("/^[a-zA-Z'\s]+$/", $fullname)) {
@@ -91,7 +92,9 @@ if (isLoggedIn()) {
                         $status = "Please enter a valid email";
                   }  else if (strlen($password) <= 5 || strlen($password) >= 26) {
                         $status = "Password should be between 6 to 25 letters";
-                  }/*  else if (mysqli_num_rows($res_u) > 0) {
+                  }  else if ($password != $password2) {
+                    $status = "Passwords Dosen't match";
+                }/*  else if (mysqli_num_rows($res_u) > 0) {
                         $alreadyTakenAccount = "Username already registered";
                   } else if (mysqli_num_rows($res_e) > 0) {
                         $alreadyTakenAccount = "Email already registered";
@@ -100,7 +103,7 @@ if (isLoggedIn()) {
                         $sql = "INSERT INTO users (fullname, email, phone, password, userRole) VALUE (:fullname, :email, :phone, :password, :userRole)";
                         $stmt = $pdo->prepare($sql);
                         $stmt-> execute(['fullname' => $fullname,'email' => $email, 'phone' => $phone, 'password' => $encryptedPassword, 'userRole' => $userRole]);
-                        header("Location: /p7/FurnitureApp/user-login");
+                        header("Location: user-login");
                   }
             }
       }
@@ -513,7 +516,7 @@ if (isLoggedIn()) {
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="phone" type="tel" placeholder="Phone number" min="9" max="10" minlength="9" maxlength="10" required>
+                                                    <input class="form-control" name="phone" type="tel" placeholder="Phone number" minlength="9" maxlength="13" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -525,6 +528,9 @@ if (isLoggedIn()) {
                                                 <div>
                                                     <div class="input-group js-parent-focus">
                                                         <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password" required>
+                                                    </div>
+                                                    <div class="input-group js-parent-focus">
+                                                        <input class="form-control js-child-focus js-visible-password" name="password2" type="password" placeholder="Confirm Password" required>
                                                     </div>
                                                 </div>
                                             </div>
