@@ -450,7 +450,6 @@ session_start();
                                         <th class="first_item">Phone :</th>
                                         <td><?php echo $_SESSION['phone'] ?></td>
                                     </tr>
-
                                 </tbody>
                             </table>
 
