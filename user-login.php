@@ -86,7 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   header("location: http://localhost/p7/FurnitureApp/");
                   }
             } else {
-                  echo '<script>alert("Email or Password is Incorrect")</script>';
+            $status = "Email or Password is Incorrect";
+
             }
       }
 }
@@ -506,8 +507,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                                             Sign in
                                         </button>
-                                        <?php echo $status ?>
                                     </div>
+                                    <?php echo $status ?>
                                 </div>
                             </form>
                         </div>

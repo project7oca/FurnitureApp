@@ -511,38 +511,44 @@ if (isLoggedIn()) {
                                         <div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="fullname" type="text" placeholder="Full name" required>
+                                                    <input class="form-control" onchange="handleInputErr()" name="fullname" type="text" placeholder="Full name" required id="fullname">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="phone" type="tel" placeholder="Phone number" minlength="9" maxlength="13" required>
+                                                    <input class="form-control" name="phone" type="tel" placeholder="Phone number" minlength="9" maxlength="13" required id="phone">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="email" type="email" placeholder="Email" required>
+                                                    <input class="form-control" onkeyup="handleEmail()" name="email" type="email" placeholder="Email" required id="email">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
                                                     <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password" required>
+                                                        <input class="form-control js-child-focus js-visible-password" onkeyup="lengthPsw(); matchingPsw()" name="password" type="password" placeholder="Password" required id="psw1">
                                                     </div>
-                                                    <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="password2" type="password" placeholder="Confirm Password" required>
-                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group js-parent-focus">
+                                                    <input class="form-control js-child-focus js-visible-password" onkeyup="lengthPsw(); matchingPsw()" name="password2" type="password" placeholder="Confirm Password" required id="psw2">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="clearfix">
                                             <div>
-                                                <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                                <button class="btn btn-primary" data-link-action="sign-in" type="submit" id="signupBtn">
                                                     Create Account
                                                 </button>
                                             </div>
                                             <?php echo $status ?>
                                             <?php echo $alreadyTakenAccount ?>
+                                            <span id="usernameErr"></span>
+                                            <span id="emailErr"></span>
+                                            <span id="passwordLengthErr"></span>
+                                            <span id="ConfirmPasswordErr"></span>
                                         </div>
                                     </form>
                                 </div>
@@ -1417,6 +1423,7 @@ if (isLoggedIn()) {
 
     <!-- Template JS -->
     <script src="js/theme.js"></script>
+    <script src="./config/functions.js"></script>
 </body>
 
 
