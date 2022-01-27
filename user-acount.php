@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+include('./config/functions.php');
+if (!isLoggedIn()) {
+	header('location: user-login');
+}
 ?>
 
 <!DOCTYPE html>

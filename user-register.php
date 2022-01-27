@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+
+include('./config/functions.php');
+if (isLoggedIn()) {
+	header('location: user-acount');
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -64,7 +74,7 @@
             $password = stripslashes($_POST['password']);
             $encryptedPassword = md5($password);
             $userRole = 0;
-            
+
             /* $sql_u = "SELECT * FROM users WHERE fullname='$fullname'";
             $sql_e = "SELECT * FROM users WHERE email='$email'";
 

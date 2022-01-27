@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+include('./config/functions.php');
+if (isLoggedIn()) {
+	header('location: user-acount');
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   $_SESSION['name'] = $loggedUser['fullname'];
                   header("location: http://localhost/p7/FurnitureApp/admin");
                   } else {
+                  $_SESSION['isLogin'] = "true";
                   $_SESSION['name'] = $loggedUser['fullname'];
                   $_SESSION['email'] = $loggedUser['email'];
                   $_SESSION['phone'] = $loggedUser['phone'];
