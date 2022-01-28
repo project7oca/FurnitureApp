@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+include('./config/functions.php');
+if (!isLoggedIn()) {
+	header('location: user-login');
+}
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -436,31 +445,15 @@
                                 <tbody>
                                     <tr>
                                         <th class="first_item">My Name :</th>
-                                        <td>David James</td>
+                                        <td><?php echo $_SESSION['name'] ?></td>
                                     </tr>
                                     <tr>
-                                        <th class="first_item">Company :</th>
-                                        <td>TivaTheme</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="first_item">Address :</th>
-                                        <td>123 canberra Street, New York, USA</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="first_item">City :</th>
-                                        <td>New York</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="first_item">Postal/Zip Code :</th>
-                                        <td>10001</td>
+                                        <th class="first_item">Email :</th>
+                                        <td><?php echo $_SESSION['email'] ?></td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Phone :</th>
-                                        <td>0123456789</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="first_item">Country:</th>
-                                        <td>USA</td>
+                                        <td><?php echo $_SESSION['phone'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>

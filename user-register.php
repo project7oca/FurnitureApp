@@ -1,14 +1,19 @@
+<?php 
+session_start();
+
+
+include('./config/functions.php');
+if (isLoggedIn()) {
+	header('location: user-acount');
+}
+?>
+
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--<![endif]-->
+
 <html lang="en">
 
-
-<!-- user-login11:10-->
 <head>
-    <!-- Basic Page Needs -->
+ 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Furnitica - Minimalist Furniture HTML Template</title>
@@ -40,7 +45,71 @@
     <link rel="stylesheet" type="text/css" href="css/reponsive.css">
 </head>
 
-<body class="user-login blog">
+<body class="user-register blog">
+
+
+<?php
+      // Database information
+      $dbHost = "localhost";
+      $dbUser = "root";
+      $dbPassword = "";
+      $dbName = "project7"; 
+
+      try {
+            $dsn = "mysql:host=" . $dbHost . ";dbname=" . $dbName;
+            $pdo = new PDO($dsn, $dbUser, $dbPassword);
+      } catch(PDOException $e) {
+            echo "DB Connection Failed" . $e->getMessage();
+      }
+      
+      $connect = mysqli_connect("localhost", "root", "", "project7");
+
+
+      $status = "";
+      $alreadyTakenAccount = "";
+      if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $fullname = stripslashes($_POST['fullname']); // StripsLashes for removes backslashes.
+            $email = stripslashes($_POST['email']);
+            $phone = stripslashes($_POST['phone']);
+            $password = stripslashes($_POST['password']);
+            $password2 = stripslashes($_POST['password2']);
+            $encryptedPassword = md5($password);
+            $userRole = 0;
+
+            /* $sql_u = "SELECT * FROM users WHERE fullname='$fullname'";
+            $sql_e = "SELECT * FROM users WHERE email='$email'";
+
+            $res_u = mysqli_query($connect, $sql_u);
+            $res_e = mysqli_query($connect, $sql_e); */
+
+            // Validation for Sign up
+            if(empty($fullname) || empty($email) || empty($password) || empty($phone)) { 
+                  $status = "All fields are required";
+            } else {
+                  if(strlen($fullname) <= 3 || strlen($fullname) >= 18 || !preg_match("/^[a-zA-Z'\s]+$/", $fullname)) {
+                        $status = "Username should be between 4 to 17 letters";
+                  } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $status = "Please enter a valid email";
+                  }  else if (strlen($password) <= 5 || strlen($password) >= 26) {
+                        $status = "Password should be between 6 to 25 letters";
+                  }  else if ($password != $password2) {
+                    $status = "Passwords Dosen't match";
+                }/*  else if (mysqli_num_rows($res_u) > 0) {
+                        $alreadyTakenAccount = "Username already registered";
+                  } else if (mysqli_num_rows($res_e) > 0) {
+                        $alreadyTakenAccount = "Email already registered";
+                  } */ else {
+
+                        $sql = "INSERT INTO users (fullname, email, phone, password, userRole) VALUE (:fullname, :email, :phone, :password, :userRole)";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt-> execute(['fullname' => $fullname,'email' => $email, 'phone' => $phone, 'password' => $encryptedPassword, 'userRole' => $userRole]);
+                        header("Location: user-login");
+                  }
+            }
+      }
+      ?>
+
+
     <header>
 
         <!-- header left mobie -->
@@ -420,51 +489,70 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>Login</span>
+                                    <span>About us</span>
                                 </a>
                             </li>
                         </ol>
                     </div>
                 </div>
             </nav>
-
         </div>
 
         <!-- main -->
         <div id="wrapper-site">
-            <div id="content-wrapper" class="full-width">
-                <div id="main">
-                    <div class="container">
-                        <h1 class="text-center title-page">Log In</h1>
-                        <div class="login-form">
-                            <form id="customer-form" action="#" method="post">
-                                <div>
-                                    <input type="hidden" name="back" value="my-account">
-                                    <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Email">
-                                    </div>
-                                    <div class="form-group no-gutters">
-                                        <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password">
+            <div class="container">
+                <div class="row">
+                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                        <div id="main">
+                            <div id="content" class="page-content">
+                                <div class="register-form text-center">
+                                    <h1 class="text-center title-page">Create Account</h1>
+                                    <form action="user-register.php" id="customer-form" class="js-customer-form" method="POST">
+                                        <div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input class="form-control" onchange="handleInputErr()" name="fullname" type="text" placeholder="Full name" required id="fullname">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input class="form-control" name="phone" type="tel" placeholder="Phone number" minlength="9" maxlength="13" required id="phone">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <input class="form-control" onkeyup="handleEmail()" name="email" type="email" placeholder="Email" required id="email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <div class="input-group js-parent-focus">
+                                                        <input class="form-control js-child-focus js-visible-password" onkeyup="lengthPsw(); matchingPsw()" name="password" type="password" placeholder="Password" required id="psw1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group js-parent-focus">
+                                                    <input class="form-control js-child-focus js-visible-password" onkeyup="lengthPsw(); matchingPsw()" name="password2" type="password" placeholder="Confirm Password" required id="psw2">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="no-gutters text-center">
-                                        <div class="forgot-password">
-                                            <a href="user-reset-password.html" rel="nofollow">
-                                                Forgot your password?
-                                            </a>
+                                        <div class="clearfix">
+                                            <div>
+                                                <button class="btn btn-primary" data-link-action="sign-in" type="submit" id="signupBtn">
+                                                    Create Account
+                                                </button>
+                                            </div>
+                                            <?php echo $status ?>
+                                            <?php echo $alreadyTakenAccount ?>
+                                            <span id="usernameErr"></span>
+                                            <span id="emailErr"></span>
+                                            <span id="passwordLengthErr"></span>
+                                            <span id="ConfirmPasswordErr"></span>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                                <div class="clearfix">
-                                    <div class="text-center no-gutters">
-                                        <input type="hidden" name="submitLogin" value="1">
-                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                            Sign in
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1335,8 +1423,9 @@
 
     <!-- Template JS -->
     <script src="js/theme.js"></script>
+    <script src="./config/functions.js"></script>
 </body>
 
 
-<!-- user-login11:10-->
+<!-- user-register11:10-->
 </html>

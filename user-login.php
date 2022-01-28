@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+include('./config/functions.php');
+if (isLoggedIn()) {
+	header('location: user-acount');
+}
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -6,7 +15,7 @@
 <html lang="en">
 
 
-<!-- user-register11:10-->
+<!-- user-login11:10-->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -40,7 +49,50 @@
     <link rel="stylesheet" type="text/css" href="css/reponsive.css">
 </head>
 
-<body class="user-register blog">
+<body class="user-login blog">
+
+<?php
+
+$connect = mysqli_connect("localhost", "root", "", "project7");
+
+$status = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $email = stripslashes($_POST['email']);
+      $password = stripslashes($_POST['password']);
+      $encryptedPassword = md5($password);
+
+      if (empty($email) || empty($password)) {
+            $status = "All fields are required";
+      } else {
+            $email = mysqli_real_escape_string($connect, $_POST["email"]);
+            $password = mysqli_real_escape_string($connect, isset($_POST["password"]));
+
+            $login = "SELECT * FROM users WHERE email = '$email' AND password = '$encryptedPassword' LIMIT 1";
+
+            $result = mysqli_query($connect, $login);
+
+            $loggedUser = mysqli_fetch_assoc($result);
+            if(mysqli_num_rows($result) == 1) {
+
+                  if($loggedUser['userRole'] == 1) {
+                  $_SESSION['userRole'] = true;
+                  $_SESSION['name'] = $loggedUser['fullname'];
+                  header("location: http://localhost/p7/FurnitureApp/admin");
+                  } else {
+                  $_SESSION['isLogin'] = "true";
+                  $_SESSION['name'] = $loggedUser['fullname'];
+                  $_SESSION['email'] = $loggedUser['email'];
+                  $_SESSION['phone'] = $loggedUser['phone'];
+                  header("location: http://localhost/p7/FurnitureApp/");
+                  }
+            } else {
+            $status = "Email or Password is Incorrect";
+
+            }
+      }
+}
+?>
+
     <header>
 
         <!-- header left mobie -->
@@ -420,59 +472,45 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>About us</span>
+                                    <span>Login</span>
                                 </a>
                             </li>
                         </ol>
                     </div>
                 </div>
             </nav>
+
         </div>
 
         <!-- main -->
         <div id="wrapper-site">
-            <div class="container">
-                <div class="row">
-                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
-                        <div id="main">
-                            <div id="content" class="page-content">
-                                <div class="register-form text-center">
-                                    <h1 class="text-center title-page">Create Account</h1>
-                                    <form action="#" id="customer-form" class="js-customer-form" method="post">
-                                        <div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input class="form-control" name="firstname" type="text" placeholder="First name">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input class="form-control" name="lastname" type="text" placeholder="Last name">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <input class="form-control" name="email" type="email" placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password">
-                                                    </div>
-                                                </div>
-                                            </div>
+            <div id="content-wrapper" class="full-width">
+                <div id="main">
+                    <div class="container">
+                        <h1 class="text-center title-page">Log In</h1>
+                        <div class="login-form">
+                            <form id="customer-form" action="user-login.php" method="POST">
+                                <div>
+                                    <input type="hidden" name="back" value="my-account">
+                                    <div class="form-group no-gutters">
+                                        <input class="form-control" name="email" type="email" placeholder=" Email" required>
+                                    </div>
+                                    <div class="form-group no-gutters">
+                                        <div class="input-group js-parent-focus">
+                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Password" required>
                                         </div>
-                                        <div class="clearfix">
-                                            <div>
-                                                <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                                    Create Account
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="clearfix">
+                                    <div class="text-center no-gutters">
+                                        <input type="hidden" name="submitLogin" value="1">
+                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                            Sign in
+                                        </button>
+                                    </div>
+                                    <?php echo $status ?>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -1346,5 +1384,5 @@
 </body>
 
 
-<!-- user-register11:10-->
+<!-- user-login11:10-->
 </html>
