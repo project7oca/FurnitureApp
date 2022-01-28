@@ -1,3 +1,19 @@
+<?php
+ session_start();
+ $servername = "localhost";
+ $username="root";
+ $dbname = "project7";
+ try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+  } catch(PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+  }
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -435,188 +451,76 @@
                                     <h1 class="title-page">Shopping Cart</h1>
                                     <div class="cart-container">
                                         <div class="cart-overview js-cart">
+                                             <!-- cart -->
                                             <ul class="cart-items">
-                                                <li class="cart-item">
-                                                    <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
-                                                        <div class="product-line-grid-left col-md-2">
-                                                            <span class="product-image media-middle">
-                                                                <a href="product-detail.html">
-                                                                    <img class="img-fluid" src="img/product/3.jpg" alt="Organic Strawberry Fruits">
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-line-grid-body col-md-6">
-                                                            <div class="product-line-info">
-                                                                <a class="label" href="product-detail.html" data-id_customization="0">Organic Strawberry Fruits</a>
-                                                            </div>
-                                                            <div class="product-line-info product-price">
-                                                                <span class="value">£20.00</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Size:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Color:</span>
-                                                                <span class="value">Blue</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
-                                                            <div class="row">
-                                                                <div class="col-md-5 col qty">
-                                                                    <div class="label">Qty:</div>
-                                                                    <div class="quantity">
-                                                                        <input type="text" name="qty" value="1" class="input-group form-control">
-
-                                                                        <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                +
-                                                                            </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                -
-                                                                            </button>
+                                                <?php 
+                                                    if(isset($_SESSION["cart"])){
+                                                        foreach($_SESSION["cart"] as $element){
+                                                            ?>
+                                                            <li class="cart-item">
+                                                                <div class="product-line-grid row justify-content-between">
+                                                                    <!--  product left content: image-->
+                                                                    <div class="product-line-grid-left col-md-2">
+                                                                        <span class="product-image media-middle">
+                                                                            <a href="product-detail.html">
+                                                                                <img class="img-fluid" src='<?php echo $element['product_image']; ?>' alt='<?php echo $element['product_name']; ?>'>
+                                                                            </a>
                                                                         </span>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-5 col price">
-                                                                    <div class="label">Total:</div>
-                                                                    <div class="product-price total">
-                                                                        £20.00
+                                                                    <div class="product-line-grid-body col-md-6">
+                                                                        <div class="product-line-info">
+                                                                            <a class="label" href="product-detail.html" data-id_customization="0"><?php echo $element['product_name']; ?></a>
+                                                                        </div>
+                                                                        <div class="product-line-info product-price">
+                                                                            <span class="value"><?php echo $element['product_price']; ?></span>
+                                                                        </div>
+                                                                        <!-- <div class="product-line-info">
+                                                                            <span class="label-atrr">Size:</span>
+                                                                            <span class="value">S</span>
+                                                                        </div> -->
+                                                                        <!-- <div class="product-line-info">
+                                                                            <span class="label-atrr">Color:</span>
+                                                                            <span class="value">Blue</span>
+                                                                        </div> -->
+                                                                    </div>
+                                                                    <div class="product-line-grid-right text-center product-line-actions col-md-4">
+                                                                        <div class="row">
+                                                                            <div class="col-md-5 col qty">
+                                                                                <div class="label">Qty:</div>
+                                                                                <div class="quantity">
+                                                                                    <input type="text" name="qty" value="<?php echo $element['quantity']; ?>" class="input-group form-control">
+            
+                                                                                    <span class="input-group-btn-vertical">
+                                                                                       <a href='./AddToCart.php?id=<?php echo $element['product_id'];?>&&name=increase'> <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                                                                            +
+                                                                                        </button></a>
+                                                                                        <a href='./AddToCart.php?id=<?php echo $element['product_id'];?>&&name=decrease'><button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                                                                            -
+                                                                                        </button></a>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-5 col price">
+                                                                                <div class="label">Total:</div>
+                                                                                <div class="product-price total">
+                                                                                    <?php echo $element['product_price']*$element['quantity']; ?>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 col text-xs-right align-self-end">
+                                                                                <div class="cart-line-product-actions ">
+                                                                                    <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
+                                                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2 col text-xs-right align-self-end">
-                                                                    <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
-                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="cart-item">
-                                                    <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
-                                                        <div class="product-line-grid-left col-md-2">
-                                                            <span class="product-image media-middle">
-                                                                <a href="product-detail.html">
-                                                                    <img class="img-fluid" src="img/product/2.jpg" alt="Organic Strawberry Fruits">
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-line-grid-body col-md-6">
-                                                            <div class="product-line-info">
-                                                                <a class="label" href="product-detail.html" data-id_customization="0">
-                                                                    Etiam Congue Nisl Nec</a>
-                                                            </div>
-                                                            <div class="product-line-info product-price">
-                                                                <span class="value">£30.00</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Size:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Color:</span>
-                                                                <span class="value">Blue</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
-                                                            <div class="row">
-                                                                <div class="col-md-5 qty col">
-                                                                    <div class="label">Qty:</div>
-                                                                    <div class="quantity">
-                                                                        <input type="text" name="qty" value="2" class="input-group form-control">
-
-                                                                        <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                +
-                                                                            </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                -
-                                                                            </button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-5 price col">
-                                                                    <div class="label">Total:</div>
-                                                                    <div class="product-price total">
-                                                                        £60.00
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 text-xs-right align-self-end col">
-                                                                    <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
-                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="cart-item">
-                                                    <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
-                                                        <div class="product-line-grid-left col-md-2">
-                                                            <span class="product-image media-middle">
-                                                                <a href="product-detail.html">
-                                                                    <img class="img-fluid" src="img/product/1.jpg" alt="Organic Strawberry Fruits">
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-line-grid-body col-md-6">
-                                                            <div class="product-line-info">
-                                                                <a class="label" href="product-detail.html" data-id_customization="0">Nulla Et Justo Non Augue</a>
-                                                            </div>
-                                                            <div class="product-line-info product-price">
-                                                                <span class="value">£40.00</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Size:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Color:</span>
-                                                                <span class="value">Blue</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
-                                                            <div class="row">
-                                                                <div class="col-md-5 col qty">
-                                                                    <div class="label">Qty:</div>
-                                                                    <div class="quantity">
-                                                                        <input type="text" name="qty" value="3" class="input-group form-control">
-
-                                                                        <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                +
-                                                                            </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                -
-                                                                            </button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-5 col price">
-                                                                    <div class="label">Total:</div>
-                                                                    <div class="product-price total">
-                                                                        £120.00
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 col text-xs-right align-self-end">
-                                                                    <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
-                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                            </li>
+                                                    <?php } }?>
+                                                
+                                             
+                                        
                                             </ul>
                                         </div>
                                     </div>
@@ -628,13 +532,23 @@
                                     <div class="cart-summary">
                                         <div class="cart-detailed-totals">
                                             <div class="cart-summary-products">
-                                                <div class="summary-label">There are 3 item in your cart</div>
+                                                <div class="summary-label">There are <?php echo count($_SESSION['cart']); ?> item in your cart</div>
                                             </div>
                                             <div class="cart-summary-line" id="cart-subtotal-products">
                                                 <span class="label js-subtotal">
                                                     Total products:
                                                 </span>
-                                                <span class="value">£200.00</span>
+                                                
+                                                    <!-- $sum=0;
+                                                     if(isset($_SESSION['cart'])){
+                                                       for($i=0;$i<count($_SESSION['cart']);$i++){
+                                                        $sum+=$_SESSION['cart'][$i]['product_price']*$_SESSION['cart'][$i]['quantity']; -->
+                                                        <span class='value'>£200.00</span>
+                                                    
+                                                     
+                                               
+                                                  
+                                                
                                             </div>
                                             <div class="cart-summary-line" id="cart-subtotal-shipping">
                                                 <span class="label">
@@ -1550,3 +1464,7 @@
 
 <!-- product-cart07:12-->
 </html>
+<?php
+    echo "<pre>";
+    echo var_dump($_SESSION['cart']);
+?>
