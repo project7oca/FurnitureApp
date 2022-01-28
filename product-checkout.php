@@ -1,3 +1,61 @@
+<?php
+session_start();
+
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname="project7";
+
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=project7", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       
+      } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+      }
+    
+                                        
+                                                        
+      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+
+       $data = "SELECT * FROM users WHERE id=1";
+       $result =  $conn->query($data);
+       $row  = $result->fetch(PDO::FETCH_ASSOC);
+       var_dump($row);
+       if($result){
+           echo 'successfully';
+       }else{
+           echo 'faild';
+       }}
+       
+     
+
+
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST"
+      ){
+          $total = $_SESSION['cart']['totalprice'];
+        
+          $address=$_POST['address'];
+         
+          $sql = "INSERT INTO orders (address,totalprice,user_id) VALUES ('$address','$total',1)";
+          $conn->exec($sql);
+          
+          echo '<script>alert("Your order was submitted successfully")</script>';
+         
+      }
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -437,37 +495,91 @@
                                     <div class="col-md-9 check-info">
                                         <div class="checkout-personal-step">
                                             <h3 class="step-title h3 info">
-                                                <span class="step-number">1</span>PERSONAL INFORMATION
+                                                <span class="step-number">1</span>Order details
                                             </h3>
                                         </div>
+                                       
                                         <div class="content">
-                                            <ul class="nav nav-inline">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" data-toggle="tab" href="#checkout-guest-form">
-                                                        ORDER AS A GUEST
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#checkout-login-form">
-                                                        SIGN IN
-                                                    </a>
-                                                </li>
-                                            </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane fade in active show" id="checkout-guest-form" role="tabpanel">
                                                     <form action="#" id="customer-form" class="js-customer-form" method="post">
                                                         <div>
                                                             <input type="hidden" name="id_customer" value="">
                                                             <div class="form-group row">
-                                                                <input class="form-control" name="firstname" type="text" placeholder="Full name">
+                                                                <input class="form-control" name="fullname" type="text" placeholder="Full name" value='<?php echo ( isset ( $row['fullname'] ) ? $row['fullname'] : '' ); ?>' required>
                                                             </div>
                                                             <div class="form-group row">
-                                                                <input class="form-control" name="email" type="email" placeholder="Email">
+                                                                <input class="form-control" name="email" type="email" placeholder="Email" value='<?php echo ( isset ( $row['email'] ) ? $row['email'] : '' ); ?>' required > 
                                                             </div>
                                                             <div class="form-group row">
-                                                                <input class="form-control" name="email" type="email" placeholder="Phone">
+                                                                <input class="form-control" name="phone" type="tel" placeholder="Phone" value='<?php echo ( isset ( $row['phone'] ) ? $row['phone'] : '' ); ?>' required>
                                                             </div>
-                                                            <div class="desc-password">
+
+                                                           
+
+                                                            <div class="form-group row">
+                                                                <input class="form-control" name="address" type="text" placeholder="Address" required>
+                                                            </div>
+
+                                                          
+                                                        
+
+                                                            <div class="checkout-personal-step">
+                                                                <h3 class="step-title h3 info">
+                                                                    <span class="step-number">2</span>Payment
+                                                                </h3>
+                                                                <div class="form-group row check-input">
+                                                                    <span class="custom-checkbox d-inline-flex">
+                                                                        <input class="check" name="optin" type="checkbox" value="1" required>
+                                                                        <label class="label-absolute">Cash On Delivery</label>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="form-group row check-input">
+                                                                    <span class="custom-checkbox d-inline-flex">
+                                                                        <input class="check" name="optin" type="checkbox" value="1">
+                                                                        <label class="label-absolute">Paybal</label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <?php
+
+                                                            $_SESSION['cart']=['quantity'=>2,'totalprice'=>50];
+
+                                                            // if ( isset($_SESSION["cart"]) ){
+                                                            //     $quantity=$_SESSION['quantity'];
+                                                            //     $total=$_SESSION['totalprice'];
+                                                            // }
+                                                            ?>
+                                                            <div class="cart-grid-right col-xs-12 col-lg-3">
+                                        <div class="cart-summary">
+                                            <div class="cart-detailed-totals">
+                                                <div class="cart-summary-products">
+                                                    <div class="summary-label" >There are <?php echo $_SESSION['cart']['quantity'];?> items in your cart</div>
+                                                </div>
+                                                <div class="cart-summary-line" id="cart-subtotal-products">
+                                                    <span class="label js-subtotal">
+                                                        Total
+                                                    </span>
+                                                    <span class="value" ><?php echo $_SESSION['cart']['totalprice'];?></span>
+                                                </div>
+                                               <div class="cart-summary-line" id="cart-subtotal-shipping">
+                                                    <span class="label">
+                                                        Total Shipping:
+                                                    </span>
+                                                    <span class="value">Free</span>
+                                                    <div>
+                                                        <small class="value"></small>
+                                                    </div>
+                                                </div> 
+                                               
+                                            </div>
+                                        </div>
+                                   
+                                                            </div>
+                                    </div> 
+                                </div>
+                                                            
+                                                            <!-- <div class="desc-password">
                                                                 <span class="font-weight-bold">Create an account</span>
                                                                 <span>(optional)</span>
                                                                 <br>
@@ -482,8 +594,8 @@
                                                                 <div class="form-group row">
                                                                     <input class="form-control" name="birthday" type="text" value="" placeholder=" Birthdate">
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group row check-input">
+                                                            </div> -->
+                                                            <!-- <div class="form-group row check-input">
                                                                 <span class="custom-checkbox d-inline-flex">
                                                                     <input class="check" name="optin" type="checkbox" value="1">
                                                                     <label class="label-absolute">Receive offers from our partners</label>
@@ -500,51 +612,27 @@
                                                                     </label>
                                                                 </span>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="clearfix">
                                                             <div class="row">
                                                                 <input type="hidden" name="submitCreate" value="1">
 
-                                                                <button class="continue btn btn-primary pull-xs-right" name="continue" data-link-action="register-new-customer" type="submit"
+                                                                <button class="continue btn btn-primary pull-xs-right" name="submit" data-link-action="register-new-customer" type="submit"
                                                                     value="1">
-                                                                    Continue
+                                                                    Place Order
                                                                 </button>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
-                                                <div class="tab-pane fade" id="checkout-login-form" role="tabpanel">
-                                                    <form id="login-form" action="#" method="post" class="customer-form">
-                                                        <div>
-                                                            <input type="hidden" name="back" value="">
-                                                            <div class="form-group row">
-                                                                <input class="form-control" name="email" type="email" placeholder="Email">
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <div class="input-group js-parent-focus">
-                                                                    <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password">
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="forgot-password">
-                                                                    <a href="user-reset-password.html" rel="nofollow">
-                                                                        Forgot your password?
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix">
-                                                            <div class="row">
-                                                                <button class="continue btn btn-primary pull-xs-right" name="continue" data-link-action="sign-in" type="submit" value="1">
-                                                                    Continue
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                       
+                                                
+
+
+                                               
                                             </div>
                                         </div>
-                                        <div class="checkout-personal-step">
+                                        <!-- <div class="checkout-personal-step">
                                             <h3 class="step-title h3">
                                                 <span class="step-number">2</span>Addresses
                                             </h3>
@@ -553,64 +641,10 @@
                                             <h3 class="step-title h3">
                                                 <span class="step-number">3</span>Shipping Method
                                             </h3>
-                                        </div>
-                                        <div class="checkout-personal-step">
-                                            <h3 class="step-title h3">
-                                                <span class="step-number">4</span>Payment
-                                            </h3>
-                                        </div>
+                                        </div> -->
+                                       
                                     </div>
-                                    <div class="cart-grid-right col-xs-12 col-lg-3">
-                                        <div class="cart-summary">
-                                            <div class="cart-detailed-totals">
-                                                <div class="cart-summary-products">
-                                                    <div class="summary-label">There are 3 item in your cart</div>
-                                                </div>
-                                                <div class="cart-summary-line" id="cart-subtotal-products">
-                                                    <span class="label js-subtotal">
-                                                        Total products:
-                                                    </span>
-                                                    <span class="value">£200.00</span>
-                                                </div>
-                                                <div class="cart-summary-line" id="cart-subtotal-shipping">
-                                                    <span class="label">
-                                                        Total Shipping:
-                                                    </span>
-                                                    <span class="value">Free</span>
-                                                    <div>
-                                                        <small class="value"></small>
-                                                    </div>
-                                                </div>
-                                                <div class="cart-summary-line cart-total">
-                                                    <span class="label">Total:</span>
-                                                    <span class="value">£200.00 (tax incl.)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="block-reassurance">
-                                            <ul>
-                                                <li>
-                                                    <div class="block-reassurance-item">
-                                                        <img src="img/product/check1.png" alt="Security policy (edit with Customer reassurance module)">
-                                                        <span>Security policy (edit with Customer reassurance module)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="block-reassurance-item">
-                                                        <img src="img/product/check2.png" alt="Delivery policy (edit with Customer reassurance module)">
-                                                        <span>Delivery policy (edit with Customer reassurance module)</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="block-reassurance-item">
-                                                        <img src="img/product/check3.png" alt="Return policy (edit with Customer reassurance module)">
-                                                        <span>Return policy (edit with Customer reassurance module)</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>
