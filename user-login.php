@@ -3,7 +3,7 @@ session_start();
 
 include('./config/functions.php');
 if (isLoggedIn()) {
-	header('location: user-acount');
+    header('location: user-acount.php');
 }
 ?>
 
@@ -16,6 +16,7 @@ if (isLoggedIn()) {
 
 
 <!-- user-login11:10-->
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -51,19 +52,19 @@ if (isLoggedIn()) {
 
 <body class="user-login blog">
 
-<?php
+    <?php
 
-$connect = mysqli_connect("localhost", "root", "", "project7");
+    $connect = mysqli_connect("localhost", "root", "", "project7");
 
-$status = "";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $email = stripslashes($_POST['email']);
-      $password = stripslashes($_POST['password']);
-      $encryptedPassword = md5($password);
+    $status = "";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $email = stripslashes($_POST['email']);
+        $password = stripslashes($_POST['password']);
+        $encryptedPassword = md5($password);
 
-      if (empty($email) || empty($password)) {
+        if (empty($email) || empty($password)) {
             $status = "All fields are required";
-      } else {
+        } else {
             $email = mysqli_real_escape_string($connect, $_POST["email"]);
             $password = mysqli_real_escape_string($connect, isset($_POST["password"]));
 
@@ -72,26 +73,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = mysqli_query($connect, $login);
 
             $loggedUser = mysqli_fetch_assoc($result);
-            if(mysqli_num_rows($result) == 1) {
+            if (mysqli_num_rows($result) == 1) {
 
-                  if($loggedUser['userRole'] == 1) {
-                  $_SESSION['userRole'] = true;
-                  $_SESSION['name'] = $loggedUser['fullname'];
-                  header("location: http://localhost/p7/FurnitureApp/admin");
-                  } else {
-                  $_SESSION['isLogin'] = "true";
-                  $_SESSION['name'] = $loggedUser['fullname'];
-                  $_SESSION['email'] = $loggedUser['email'];
-                  $_SESSION['phone'] = $loggedUser['phone'];
-                  header("location: http://localhost/p7/FurnitureApp/");
-                  }
+                if ($loggedUser['userRole'] == 1) {
+                    $_SESSION['userRole'] = true;
+                    $_SESSION['name'] = $loggedUser['fullname'];
+                    header("location: ./admin");
+                } else {
+                    $_SESSION['isLogin'] = "true";
+                    $_SESSION['name'] = $loggedUser['fullname'];
+                    $_SESSION['email'] = $loggedUser['email'];
+                    $_SESSION['phone'] = $loggedUser['phone'];
+                    header("location: ./index.php");
+                }
             } else {
-            $status = "Email or Password is Incorrect";
-
+                $status = "Email or Password is Incorrect";
             }
-      }
-}
-?>
+        }
+    }
+    ?>
 
     <header>
 
@@ -1385,4 +1385,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <!-- user-login11:10-->
+
 </html>

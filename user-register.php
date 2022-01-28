@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 
 
 include('./config/functions.php');
 if (isLoggedIn()) {
-	header('location: user-acount');
+    header('location: user-acount.php');
 }
 ?>
 
@@ -13,7 +13,7 @@ if (isLoggedIn()) {
 <html lang="en">
 
 <head>
- 
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Furnitica - Minimalist Furniture HTML Template</title>
@@ -48,66 +48,62 @@ if (isLoggedIn()) {
 <body class="user-register blog">
 
 
-<?php
-      // Database information
-      $dbHost = "localhost";
-      $dbUser = "root";
-      $dbPassword = "";
-      $dbName = "project7"; 
+    <?php
+    // Database information
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPassword = "";
+    $dbName = "project7";
 
-      try {
-            $dsn = "mysql:host=" . $dbHost . ";dbname=" . $dbName;
-            $pdo = new PDO($dsn, $dbUser, $dbPassword);
-      } catch(PDOException $e) {
-            echo "DB Connection Failed" . $e->getMessage();
-      }
-      
-      $connect = mysqli_connect("localhost", "root", "", "project7");
+    try {
+        $dsn = "mysql:host=" . $dbHost . ";dbname=" . $dbName;
+        $pdo = new PDO($dsn, $dbUser, $dbPassword);
+    } catch (PDOException $e) {
+        echo "DB Connection Failed" . $e->getMessage();
+    }
+
+    $connect = mysqli_connect("localhost", "root", "", "project7");
 
 
-      $status = "";
-      $alreadyTakenAccount = "";
-      if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $fullname = stripslashes($_POST['fullname']); // StripsLashes for removes backslashes.
-            $email = stripslashes($_POST['email']);
-            $phone = stripslashes($_POST['phone']);
-            $password = stripslashes($_POST['password']);
-            $password2 = stripslashes($_POST['password2']);
-            $encryptedPassword = md5($password);
-            $userRole = 0;
+    $status = "";
+    $alreadyTakenAccount = "";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $fullname = stripslashes($_POST['fullname']); // StripsLashes for removes backslashes.
+        $email = stripslashes($_POST['email']);
+        $phone = stripslashes($_POST['phone']);
+        $password = stripslashes($_POST['password']);
+        $password2 = stripslashes($_POST['password2']);
+        $encryptedPassword = md5($password);
+        $userRole = 0;
 
-            /* $sql_u = "SELECT * FROM users WHERE fullname='$fullname'";
-            $sql_e = "SELECT * FROM users WHERE email='$email'";
+        $sql_e = "SELECT * FROM users WHERE email='$email'";
 
-            $res_u = mysqli_query($connect, $sql_u);
-            $res_e = mysqli_query($connect, $sql_e); */
+        $res_e = mysqli_query($connect, $sql_e);
 
-            // Validation for Sign up
-            if(empty($fullname) || empty($email) || empty($password) || empty($phone)) { 
-                  $status = "All fields are required";
+        // Validation for Sign up
+        if (empty($fullname) || empty($email) || empty($password) || empty($phone)) {
+            $status = "All fields are required";
+        } else {
+            if (strlen($fullname) <= 3 || strlen($fullname) >= 18 || !preg_match("/^[a-zA-Z'\s]+$/", $fullname)) {
+                $status = "Username should be between 4 to 17 letters";
+            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $status = "Please enter a valid email";
+            } else if (strlen($password) <= 5 || strlen($password) >= 26) {
+                $status = "Password should be between 6 to 25 letters";
+            } else if ($password != $password2) {
+                $status = "Passwords Dosen't match";
+            } else if (mysqli_num_rows($res_e) > 0) {
+                $alreadyTakenAccount = "Email already registered";
             } else {
-                  if(strlen($fullname) <= 3 || strlen($fullname) >= 18 || !preg_match("/^[a-zA-Z'\s]+$/", $fullname)) {
-                        $status = "Username should be between 4 to 17 letters";
-                  } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $status = "Please enter a valid email";
-                  }  else if (strlen($password) <= 5 || strlen($password) >= 26) {
-                        $status = "Password should be between 6 to 25 letters";
-                  }  else if ($password != $password2) {
-                    $status = "Passwords Dosen't match";
-                }/*  else if (mysqli_num_rows($res_u) > 0) {
-                        $alreadyTakenAccount = "Username already registered";
-                  } else if (mysqli_num_rows($res_e) > 0) {
-                        $alreadyTakenAccount = "Email already registered";
-                  } */ else {
 
-                        $sql = "INSERT INTO users (fullname, email, phone, password, userRole) VALUE (:fullname, :email, :phone, :password, :userRole)";
-                        $stmt = $pdo->prepare($sql);
-                        $stmt-> execute(['fullname' => $fullname,'email' => $email, 'phone' => $phone, 'password' => $encryptedPassword, 'userRole' => $userRole]);
-                        header("Location: user-login");
-                  }
+                $sql = "INSERT INTO users (fullname, email, phone, password, userRole) VALUE (:fullname, :email, :phone, :password, :userRole)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute(['fullname' => $fullname, 'email' => $email, 'phone' => $phone, 'password' => $encryptedPassword, 'userRole' => $userRole]);
+                header("Location: user-login.php");
             }
-      }
-      ?>
+        }
+    }
+    ?>
 
 
     <header>
@@ -1428,4 +1424,5 @@ if (isLoggedIn()) {
 
 
 <!-- user-register11:10-->
+
 </html>
