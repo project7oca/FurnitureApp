@@ -7,7 +7,7 @@ if (isset($_SESSION['successMessage'])) {
 // var_dump($_SESSION["userData"]);
 // var_dump($_SESSION["isLogin"]);
 
-echo(count($_SESSION["cart"]));
+// echo(count($_SESSION["cart"]));
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
