@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $servername = "localhost";
 $username = "root";
 $dbname = "project7";
@@ -448,6 +449,7 @@ try {
     <div class="row">
      <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
       <section id="main">
+          <div><?php if(!isset($_SESSION['cart']))echo "Cart is empty!";?></div>
        <div class="cart-grid row">
         <div class="col-md-9 col-xs-12 check-info">
          <h1 class="title-page">Shopping Cart</h1>
@@ -456,9 +458,10 @@ try {
            <!-- cart -->
            <ul class="cart-items">
             <?php
-            if (isset($_SESSION["cart"])) {
+             if (isset($_SESSION["cart"])) {
              foreach ($_SESSION["cart"] as $element) {
             ?>
+            
               <li class="cart-item">
                <div class="product-line-grid row justify-content-between">
                 <!--  product left content: image-->
@@ -474,16 +477,16 @@ try {
                   <a class="label" href="product-detail.html" data-id_customization="0"><?php echo $element['product_name']; ?></a>
                  </div>
                  <div class="product-line-info product-price">
-                  <span class="value"><?php echo $element['product_price']; ?></span>
+                  <span class="value">$<?php echo $element['product_price']; ?></span>
                  </div>
                  <!-- <div class="product-line-info">
-                                                                            <span class="label-atrr">Size:</span>
-                                                                            <span class="value">S</span>
-                                                                        </div> -->
+                <span class="label-atrr">Size:</span>
+                 <span class="value">S</span>
+                 </div> -->
                  <!-- <div class="product-line-info">
-                                                                            <span class="label-atrr">Color:</span>
-                                                                            <span class="value">Blue</span>
-                                                                        </div> -->
+                <span class="label-atrr">Color:</span>
+                 <span class="value">Blue</span>
+                 </div> -->
                 </div>
                 <div class="product-line-grid-right text-center product-line-actions col-md-4">
                  <div class="row">
@@ -505,12 +508,12 @@ try {
                   <div class="col-md-5 col price">
                    <div class="label">Total:</div>
                    <div class="product-price total">
-                    <?php echo $element['product_price'] * $element['quantity']; ?>
+                    $<?php echo $element['product_price'] * $element['quantity']; ?>
                    </div>
                   </div>
                   <div class="col-md-2 col text-xs-right align-self-end">
                    <div class="cart-line-product-actions ">
-                    <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
+                    <a class="remove-from-cart" rel="nofollow" href="./AddToCart.php?id=<?php echo $element['product_id']; ?>&&name=remove" >
                      <i class="fa fa-trash-o" aria-hidden="true"></i>
                     </a>
                    </div>
@@ -535,20 +538,20 @@ try {
          <div class="cart-summary">
           <div class="cart-detailed-totals">
            <div class="cart-summary-products">
-            <div class="summary-label">There are <?php echo count($_SESSION['cart']); ?> item in your cart</div>
+            <div class="summary-label">There are <?php if(isset($_SESSION['cart']))echo count($_SESSION['cart']); else echo '0'; ?> item in your cart</div>
            </div>
            <div class="cart-summary-line" id="cart-subtotal-products">
             <span class="label js-subtotal">
-             Total products:
+             Total:
             </span>
-
-            <!-- $sum=0;
-                                                     if(isset($_SESSION['cart'])){
-                                                       for($i=0;$i<count($_SESSION['cart']);$i++){
-                                                        $sum+=$_SESSION['cart'][$i]['product_price']*$_SESSION['cart'][$i]['quantity']; -->
-            <span class='value'>£200.00</span>
-
-
+           <?php 
+            $sum=0;
+           if(isset($_SESSION['cart'])){
+           for($i=0;$i<count($_SESSION['cart']);$i++){
+            $sum+=$_SESSION['cart'][$i]['product_price']*$_SESSION['cart'][$i]['quantity']; }}
+           ?>
+          
+          <span class='value'>$<?php echo $sum; ?></span>
 
 
 
@@ -562,10 +565,10 @@ try {
              <small class="value"></small>
             </div>
            </div>
-           <div class="cart-summary-line cart-total">
+           <!-- <div class="cart-summary-line cart-total">
             <span class="label">Total:</span>
             <span class="value">£200.00 (tax incl.)</span>
-           </div>
+           </div> -->
           </div>
          </div>
          <div id="block-reassurance">
@@ -1469,6 +1472,6 @@ try {
 
 </html>
 <?php
-echo "<pre>";
-echo var_dump($_SESSION['cart']);
+// echo "<pre>";
+// echo var_dump($_SESSION['cart']);
 ?>
