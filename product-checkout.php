@@ -1,9 +1,5 @@
 <?php
 session_start();
-
-
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,67 +13,67 @@ try {
  echo "Connection failed: " . $e->getMessage();
 }
 
-if ( isset($_SESSION["cart"]) ){
-  
-   
-    
-                 
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
- $data = "SELECT * FROM users WHERE id=1";
- $result =  $conn->query($data);
- $row  = $result->fetch(PDO::FETCH_ASSOC);
- 
+if (isset($_SESSION["cart"])) {
+ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  $data = "SELECT * FROM users WHERE id=1";
+  $result =  $conn->query($data);
+  $row  = $result->fetch(PDO::FETCH_ASSOC);
+ }
+ if (
+  $_SERVER["REQUEST_METHOD"] == "POST"
+ ) {
+  $lastIdStmt = $conn->prepare("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
+  $lastIdStmt->execute();
+  $lastId = $lastIdStmt->fetch()["id"];
+  lastOrder($lastId + 1);
+ }
 }
+function lastOrder($id)
+{
+ global $conn;
+ $checkOutOfStock = false;
+ for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+  $product_id = $_SESSION['cart'][$i]['product_id'];
+  $quantity = $_SESSION['cart'][$i]['quantity'];
 
+  $PrevStockSelectStmt = $conn->prepare("SELECT stock FROM products WHERE id=? LIMIT 1");
+  $PrevStockSelectStmt->execute([$product_id]);
+  $row = $PrevStockSelectStmt->fetch();
+  $prevStock = $row["stock"];
+  $newStock = $prevStock - $quantity;
+  if ($newStock < 0) {
+   $checkOutOfStock = true;
+  }
+ }
+ if ($checkOutOfStock == false) {
+  $address = $_POST['address'];
+  $sql = "INSERT INTO orders (address,totalprice,user_id) VALUES ('$address',10,1)";
+  $conn->exec($sql);
+  for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+   $product_id = $_SESSION['cart'][$i]['product_id'];
+   $quantity = $_SESSION['cart'][$i]['quantity'];
+   $PrevStockSelectStmt = $conn->prepare("SELECT stock FROM products WHERE id=? LIMIT 1");
+   $PrevStockSelectStmt->execute([$product_id]);
+   $row = $PrevStockSelectStmt->fetch();
+   $prevStock = $row["stock"];
+   $newStock = $prevStock - $quantity;
+   $stmt = "UPDATE products SET stock=$newStock WHERE id = '$product_id'";
 
-if (
- $_SERVER["REQUEST_METHOD"] == "POST"
-) {
-
-
- $address = $_POST['address'];
-
- $sql = "INSERT INTO orders (address,totalprice,user_id) VALUES ('$address',10,1)";
- $conn->exec($sql);
- $last_id = $conn->lastInsertId();
- echo $last_id;
-
-
-//  $value="SELECT * from orders where id = (SELECT max(id) from orders)";
-//  $conn->exec($value);
-
-lastOrder($last_id);
-
- echo '<script>alert("Your order was submitted successfully")</script>';
-}
-
-
-}
-function lastOrder ($id){
-    global $conn;
-    for ($i=0; $i <count($_SESSION['cart'] ); $i++) { 
-        $product_id=$_SESSION['cart'][$i]['product_id'];
-        $sql = "INSERT INTO `orders_products` (order_id,product_id) VALUES ('$id','$product_id')";
-        $conn->exec($sql);
-      
-    }
+   $sql = "INSERT INTO `orders_products` (order_id,product_id,quantity) VALUES ('$id','$product_id',$quantity)";
+   $conn->exec($sql);
+   $conn->exec($stmt);
+  }
+  echo '<script>alert("Your order was submitted successfully")</script>';
+ } else {
+  echo '<script>alert("there\'s an item out of stock")</script>';
+ }
 }
 
 
 ?>
 
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--<![endif]-->
 <html lang="en">
-
-
-<!-- product-checkout07:12-->
 
 <head>
  <!-- Basic Page Needs -->
@@ -557,9 +553,9 @@ function lastOrder ($id){
                </div>
                <?php
 
-              
 
-             
+
+
                ?>
                <div class="cart-grid-right col-xs-12 col-lg-3">
                 <div class="cart-summary">
