@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['successMessage'])) {
+  echo "<script> alert('horray');</script>";
+  unset($_SESSION['successMessage']);
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -1257,7 +1264,9 @@
 
 
   <!-- Page Loader -->
-  <?php include_once("./pagePreLoader.php") ?>
+  <?php
+  // include_once("./pagePreLoader.php")
+  ?>
 
 
   <!-- Vendor JS -->
