@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['successMessage'])) {
-  echo "<script> alert('horray');</script>";
+  echo "<script> alert('Thank you for ordering from us');</script>";
   unset($_SESSION['successMessage']);
 }
 ?>
