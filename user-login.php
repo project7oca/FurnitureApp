@@ -89,7 +89,7 @@ if (isLoggedIn()) {
                     $_SESSION['name'] = $loggedUser['fullname'];
                     $_SESSION['email'] = $loggedUser['email'];
                     $_SESSION['phone'] = $loggedUser['phone'];
-                    /* header("location: ./index.php"); */
+                    header("location: ./index.php"); 
                 }
             } else {
                 $status = "Email or Password is Incorrect";
