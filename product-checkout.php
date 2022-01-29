@@ -17,6 +17,11 @@ try {
  echo "Connection failed: " . $e->getMessage();
 }
 
+if ( isset($_SESSION["cart"]) ){
+  
+   
+    
+                 
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -24,34 +29,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
  $data = "SELECT * FROM users WHERE id=1";
  $result =  $conn->query($data);
  $row  = $result->fetch(PDO::FETCH_ASSOC);
- var_dump($row);
- if ($result) {
-  echo 'successfully';
- } else {
-  echo 'faild';
- }
+ 
 }
-
-
-
 
 
 if (
  $_SERVER["REQUEST_METHOD"] == "POST"
 ) {
- $total = $_SESSION['cart']['totalprice'];
+
 
  $address = $_POST['address'];
 
- $sql = "INSERT INTO orders (address,totalprice,user_id) VALUES ('$address','$total',1)";
+ $sql = "INSERT INTO orders (address,totalprice,user_id) VALUES ('$address',10,1)";
  $conn->exec($sql);
+ $last_id = $conn->lastInsertId();
+ echo $last_id;
+
+
+//  $value="SELECT * from orders where id = (SELECT max(id) from orders)";
+//  $conn->exec($value);
+
+lastOrder($last_id);
 
  echo '<script>alert("Your order was submitted successfully")</script>';
 }
 
 
-
-
+}
+function lastOrder ($id){
+    global $conn;
+    for ($i=0; $i <count($_SESSION['cart'] ); $i++) { 
+        $product_id=$_SESSION['cart'][$i]['product_id'];
+        $sql = "INSERT INTO `orders_products` (order_id,product_id) VALUES ('$id','$product_id')";
+        $conn->exec($sql);
+      
+    }
+}
 
 
 ?>
@@ -544,12 +557,9 @@ if (
                </div>
                <?php
 
-               $_SESSION['cart'] = ['quantity' => 2, 'totalprice' => 50];
+              
 
-               // if ( isset($_SESSION["cart"]) ){
-               //     $quantity=$_SESSION['quantity'];
-               //     $total=$_SESSION['totalprice'];
-               // }
+             
                ?>
                <div class="cart-grid-right col-xs-12 col-lg-3">
                 <div class="cart-summary">
