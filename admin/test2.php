@@ -14,11 +14,11 @@ if(isset($_POST['update']))
    $query = "UPDATE users SET fullname='$fullname', email='$email',phone='$phone', password='$password', userRole='$userRole' WHERE id='$id'";
    $query_run=mysqli_query($connection, $query);
     if($query_run){        
-        echo'The Account Has Been Modified';
-        header ('location:index.php');
+        echo'work';
+        header ('location:tableuser.php');
 }else{
     echo'notwork';
-    header ('location:index.php');
+    header ('location:tableuser.php');
 }
 
     
