@@ -35,13 +35,13 @@
                         <tbody>
                            <tr>
                               <td class="product-image">
-                                 <a href="product-detail.html">
+                                 <a href="product-detail.php">
                                     <img src="img/product/5.jpg" alt="Product">
                                  </a>
                               </td>
                               <td>
                                  <div class="product-name">
-                                    <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                    <a href="product-detail.php">Organic Strawberry Fruits</a>
                                  </div>
                                  <div>
                                     2 x
@@ -62,8 +62,8 @@
                            <tr>
                               <td colspan="3" class="d-flex justify-content-center">
                                  <div class="cart-button">
-                                    <a href="product-cart.html" title="View Cart">View Cart</a>
-                                    <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                    <a href="product-cart.php" title="View Cart">View Cart</a>
+                                    <a href="product-checkout.php" title="Checkout">Checkout</a>
                                  </div>
                               </td>
                            </tr>
@@ -100,7 +100,7 @@
                         <a href="product-grid-sidebar-left.php" class="parent">Shop</a>
                      </li>
                      <li>
-                        <a href="contact.html" class="parent">Contact US</a>
+                        <a href="contact.php" class="parent">Contact US</a>
                      </li>
                   </ul>
                </div>
@@ -177,13 +177,13 @@
                               <tbody>
                                  <tr>
                                     <td class="product-image">
-                                       <a href="product-detail.html">
+                                       <a href="product-detail.php">
                                           <img src="img/product/5.jpg" alt="Product">
                                        </a>
                                     </td>
                                     <td>
                                        <div class="product-name">
-                                          <a href="product-detail.html">Organic Strawberry Fruits</a>
+                                          <a href="product-detail.php">Organic Strawberry Fruits</a>
                                        </div>
                                        <div>
                                           2 x
