@@ -4,6 +4,8 @@ if (isset($_SESSION['successMessage'])) {
   echo "<script> alert('Thank you for ordering from us');</script>";
   unset($_SESSION['successMessage']);
 }
+// var_dump($_SESSION["userData"]);
+// var_dump($_SESSION["isLogin"]);
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
