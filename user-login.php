@@ -82,12 +82,14 @@ if (isLoggedIn()) {
                 } else {
                     $_SESSION['isLogin'] = "true";
 
-                    // ! ID , Name , currentUser Object 
-                    
+                    // ! Users Array Data
+                    $_SESSION['userData'] = $loggedUser;
+
+
                     $_SESSION['name'] = $loggedUser['fullname'];
                     $_SESSION['email'] = $loggedUser['email'];
                     $_SESSION['phone'] = $loggedUser['phone'];
-                    header("location: ./index.php");
+                    /* header("location: ./index.php"); */
                 }
             } else {
                 $status = "Email or Password is Incorrect";
