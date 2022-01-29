@@ -11,7 +11,7 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
-$productId = 3;
+$productId = 4;
 function fetchProductData()
 {
     global $conn, $productId;
@@ -29,13 +29,24 @@ function fetchProductComments()
     $result = $sth->fetchAll();
     return $result;
 }
-if (!count(fetchProductComments()) <= 0) {
-    echo "<pre>";
-    var_dump(fetchProductComments());
-} else {
-    echo "empty";
+function calculateProductRate()
+{
+    $allComments = fetchProductComments();
+    if (!count($allComments) <= 0) {
+        $sumOfStars = 0;
+        $calculatedReviewsCounter = 0;
+        foreach ($allComments as $comment) {
+            if ($comment['stars']) {
+                $sumOfStars += $comment['stars'];
+                $calculatedReviewsCounter++;
+            }
+        }
+        echo $sumOfStars > 0 ? $sumOfStars / $calculatedReviewsCounter : "no reviews";
+    } else {
+        echo "no reviews";
+    }
 }
-
+calculateProductRate();
 function fetchUserNameFromId($userId)
 {
     global $conn;
@@ -44,4 +55,17 @@ function fetchUserNameFromId($userId)
     $row = $stmt->fetch();
     return $row;
 }
-print_r(fetchUserNameFromId(1)["fullname"]);
+// print_r(fetchUserNameFromId(1)["fullname"]);
+
+
+// function calculateProductRate()
+// {
+//     global $conn, $productId;
+//     $sth = $conn->prepare("SELECT * FROM comments WHERE product_id=?");
+//     $sth->execute([1]);
+//     $result = $sth->fetchAll();
+//     return $result;
+// }
+// echo "<pre>";
+
+// var_dump(calculateProductRate()[4]["stars"]);
