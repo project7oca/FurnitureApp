@@ -81,6 +81,9 @@ if (isLoggedIn()) {
                     header("location: ./admin");
                 } else {
                     $_SESSION['isLogin'] = "true";
+
+                    // ! ID , Name , currentUser Object 
+                    
                     $_SESSION['name'] = $loggedUser['fullname'];
                     $_SESSION['email'] = $loggedUser['email'];
                     $_SESSION['phone'] = $loggedUser['phone'];
