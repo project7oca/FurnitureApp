@@ -1,5 +1,5 @@
 <?php
-$productId = 1;
+$productId = 3;
 $currentUserId = 1;
 $servername = "localhost";
 $username = "root";
@@ -28,6 +28,24 @@ function fetchProductComments()
  $result = $sth->fetchAll();
  return $result;
 }
+
+function calculateProductRate()
+{
+ $allComments = fetchProductComments();
+ if (!count($allComments) <= 0) {
+  $sumOfStars = 0;
+  $calculatedReviewsCounter = 0;
+  foreach ($allComments as $comment) {
+   if ($comment['stars']) {
+    $sumOfStars += $comment['stars'];
+    $calculatedReviewsCounter++;
+   }
+  }
+  echo $sumOfStars > 0 ? $sumOfStars / $calculatedReviewsCounter : "no reviews";
+ } else {
+  echo "no reviews";
+ }
+}
 function fetchUserNameFromId($userId)
 {
  global $conn;
@@ -45,12 +63,14 @@ function fetchUserCategoryFromId($categoryId)
  return $row;
 }
 if (isset($_POST['newUserReview'])) {
+ $reviewStars = isset($_POST["rating"]) ? $_POST["rating"] : 0;
  $comment_desc = $_POST['newUserReview'];
- $stmt = $conn->prepare("INSERT INTO comments (comment_desc, user_id , product_id )
-  VALUES (:comment_desc, :user_id , :product_id )");
+ $stmt = $conn->prepare("INSERT INTO comments (comment_desc, user_id , product_id,stars )
+  VALUES (:comment_desc, :user_id , :product_id, :stars )");
  $stmt->bindParam(':comment_desc', $comment_desc);
  $stmt->bindParam(':user_id', $currentUserId);
  $stmt->bindParam(':product_id', $productId);
+ $stmt->bindParam(':stars', $reviewStars);
  $stmt->execute();
 }
 
@@ -512,19 +532,18 @@ if (isset($_POST['newUserReview'])) {
                  <div class="input-group">
                   <div class="quantity">
                    <span class="control-label">QTY : </span>
-                   <input type="number" name="qty" id="quantity_wanted" value="1" min="1" max="
-                   <?php
-                   echo (fetchProductData()["stock"]);
-                   ?>" class="input-group form-control">
+                   <input type="number" name="qty" id="quantity_wanted" value="1" maxlength="2" min="1" max="<?php
+                                                                                                             echo (fetchProductData()["stock"]);
+                                                                                                             ?>" class="input-group form-control">
 
-                   <span class="input-group-btn-vertical">
+                   <!-- <span class="input-group-btn-vertical">
                     <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
                      +
                     </button>
                     <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
                      -
                     </button>
-                   </span>
+                   </span> -->
                   </div>
                   <span class="add">
                    <button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
@@ -542,17 +561,12 @@ if (isset($_POST['newUserReview'])) {
               </div>
 
               <div class="rating-comment has-border d-flex">
-               <div class="review-description d-flex">
-                <span>REVIEW :</span>
-                <div class="rating">
-                 <div class="star-content">
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                  <div class="star"></div>
-                 </div>
-                </div>
+               <div class="read after-has-border">
+                <a href="#review">
+                 <span>REVIEW : <?php
+                                echo calculateProductRate();
+                                ?></span>
+                </a>
                </div>
                <div class="read after-has-border">
                 <a href="#review">
@@ -633,11 +647,18 @@ if (isset($_POST['newUserReview'])) {
                     </span>
                     <div class="rating">
                      <div class="star-content">
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
+                      <?php
+                      if ($allreviews[$i]["stars"] > 0) {
+
+                       for ($j = 0; $j < $allreviews[$i]["stars"]; $j++) {
+                      ?>
+                        <div class="star"></div>
+                      <?php
+                       }
+                      } else {
+                       echo "<small style='text-transform: lowercase; font-size:0.7rem'>without rating</small>";
+                      }
+                      ?>
                      </div>
                     </div>
                    </div>
@@ -656,7 +677,7 @@ if (isset($_POST['newUserReview'])) {
                </div>
               </div>
               <?php
-              if (!$userHasReviewed) {
+              if (!$userHasReviewed) { //!$userHasReviewed
               ?>
 
                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="new-review-form">
@@ -669,30 +690,17 @@ if (isset($_POST['newUserReview'])) {
                   <fieldset class="ratings">
                    <input type="radio" id="star5" name="rating" value="5" />
                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                   <input type="radio" id="star4half" name="rating" value="4 and a half" />
                    <input type="radio" id="star4" name="rating" value="4" />
                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                   <input type="radio" id="star3half" name="rating" value="3 and a half" />
                    <input type="radio" id="star3" name="rating" value="3" />
                    <label class="full" for="star3" title="Meh - 3 stars"></label>
-                   <input type="radio" id="star2half" name="rating" value="2 and a half" />
                    <input type="radio" id="star2" name="rating" value="2" />
                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                   <input type="radio" id="star1half" name="rating" value="1 and a half" />
                    <input type="radio" id="star1" name="rating" value="1" />
                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                   <input type="radio" id="starhalf" name="rating" value="half" />
                   </fieldset>
                  </div>
                 </fieldset>
-                <!-- <fieldset class="spr-form-contact">
-                 <div class="spr-form-contact-name">
-                  <input class="spr-form-input spr-form-input-text form-control" value="" placeholder="Enter your name">
-                 </div>
-                 <div class="spr-form-contact-email">
-                  <input class="spr-form-input spr-form-input-email form-control" value="" placeholder="Enter your email">
-                 </div>
-                </fieldset> -->
                 <fieldset>
                  <div class="spr-form-review-body">
                   <div class="spr-form-input">
