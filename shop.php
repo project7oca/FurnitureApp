@@ -112,7 +112,7 @@ try {
                                                 $category->execute();
                                                 foreach ($category as $element) { ?>
                                                     <div class="cateTitle hasSubCategory open level1">
-                                                        <a class="cateItem" href='product-grid-sidebar-left.php?id=<?php echo $element["id"] ?>'><?php echo $element["category_name"] ?></a>
+                                                        <a class="cateItem" href='shop.php?id=<?php echo $element["id"] ?>'><?php echo $element["category_name"] ?></a>
                                                     </div>
                                                 <?php  } ?>
 

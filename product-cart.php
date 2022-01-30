@@ -118,7 +118,7 @@ try {
                                     <a class="label" href="product-detail.html" data-id_customization="0"><?php echo $element['product_name']; ?></a>
                                   </div>
                                   <div class="product-line-info product-price">
-                                    <span class="value">jd<?php echo $element['product_price']; ?></span>
+                                    <span class="value"><?php echo $element['product_price']; ?> JOD</span>
                                   </div>
                                   <!-- <div class="product-line-info">
                 <span class="label-atrr">Size:</span>
@@ -149,7 +149,7 @@ try {
                                     <div class="col-md-5 col price">
                                       <div class="label">Total:</div>
                                       <div class="product-price total">
-                                        jd<?php echo $element['product_price'] * $element['quantity']; ?>
+                                        <?php echo $element['product_price'] * $element['quantity']; ?> JOD
                                       </div>
                                     </div>
                                     <div class="col-md-2 col text-xs-right align-self-end">
@@ -195,7 +195,7 @@ try {
                         }
                         ?>
 
-                        <span class='value'>jd<?php echo $sum; ?></span>
+                        <span class='value'><?php echo $sum; ?> JOD</span>
 
                         <?php
                         if (isset($_SESSION['cart'])) {

@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
   } else if ($_GET['name'] == 'remove') {
     header('Location:product-cart.php');
   } else if ($_GET['name'] == 'addFromDetail') {
-    header('Location:product-detail.php?id=' . $addToCart . '');
+    header('Location:product-detail.php?id='.$_GET["id"].'');
   } else {
     header('Location:shop.php');
   }
