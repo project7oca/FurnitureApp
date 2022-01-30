@@ -105,7 +105,7 @@
                         <a href="." class="parent">Home</a>
                      </li>
                      <li>
-                        <a href="product-grid-sidebar-left.php" class="parent">Shop</a>
+                        <a href="shop.php" class="parent">Shop</a>
                      </li>
                      <li>
                         <a href="contact.php" class="parent">Contact US</a>
@@ -137,7 +137,7 @@
                            </a>
                         </div>
                         <div>
-                           <a class="login" href="product-grid-sidebar-left.php" rel="nofollow" title="Log in to your customer account">
+                           <a class="login" href="shop.php" rel="nofollow" title="Log in to your customer account">
                            <i class="fa fa-shopping-bag"></i>
                               <span>Shop</span>
                            </a>

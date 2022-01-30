@@ -22,7 +22,7 @@
                 <i class="fas fa-id-card"></i></i>My account</a>
               </li>
               <li class="item has-sub">
-                <a href="product-grid-sidebar-left.php" title="Shop">
+                <a href="shop.php" title="Shop">
                 <i class="fa fa-shopping-bag"></i></i>Shop</a>
               </li>
               <li class="item has-sub">

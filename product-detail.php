@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_GET['id'])) {
-  header('Location:product-grid-sidebar-left.php');
+  header('Location:shop.php');
   exit();
 }
 $productId = $_GET['id'];

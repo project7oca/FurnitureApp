@@ -55,6 +55,6 @@ if (isset($_GET['id'])) {
   } else if ($_GET['name'] == 'addFromDetail') {
     header('Location:product-detail.php?id=' . $addToCart . '');
   } else {
-    header('Location:product-grid-sidebar-left.php');
+    header('Location:shop.php');
   }
 }
