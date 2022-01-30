@@ -54,11 +54,9 @@ session_start();
         else if($_GET['name']=='remove'){
             header('Location:product-cart.php');
         } else if($_GET['name']=='addFromDetail'){
-            header('Location:product-detail.php');
+            header('Location:product-detail.php?id='.$addToCart);
         }
         else{
             header('Location:product-grid-sidebar-left.php');
         }
     }
-
-?>
