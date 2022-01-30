@@ -25,19 +25,21 @@
       <div id="mobile_search" class="d-flex">
          <div class="desktop_cart">
             <div class="blockcart block-cart cart-preview tiva-toggle">
-               <div class="header-cart tiva-toggle-btn">
-                  <span class="cart-products-count">
-                  <?php
-                           if(isset($_SESSION["cart"])) {
-                              echo (count($_SESSION["cart"]));
-                           } else {
-                              echo "0";
-                           }
-                           ?>
-                  </span>
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-               </div>
-               <div class="dropdown-content">
+               <a href="product-cart.php">
+                  <div class="header-cart tiva-toggle-btn">
+                     <span class="cart-products-count">
+                        <?php
+                        if (isset($_SESSION["cart"])) {
+                           echo (count($_SESSION["cart"]));
+                        } else {
+                           echo "0";
+                        }
+                        ?>
+                     </span>
+                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  </div>
+               </a>
+               <!-- <div class="dropdown-content">
                   <div class="cart-content">
                      <table>
                         <tbody>
@@ -78,7 +80,7 @@
                         </tbody>
                      </table>
                   </div>
-               </div>
+               </div> -->
             </div>
          </div>
       </div>
@@ -129,101 +131,104 @@
                   </div>
                   <div id="acount" class="collapse">
                      <div class="account-list-content">
-                        <?php if(isset($_SESSION['isLogin'])) : ?>
-                        <div>
-                           <a class="login" href="user-acount.php" rel="nofollow" title="Log in to your customer account">
-                              <i class="fa fa-cog"></i>
-                              <span>My Account</span>
-                           </a>
-                        </div>
-                        <div>
-                           <a class="login" href="shop.php" rel="nofollow" title="Log in to your customer account">
-                           <i class="fa fa-shopping-bag"></i>
-                              <span>Shop</span>
-                           </a>
-                        </div>
-                        <div>
-                           <a href="logout.php" title="Logout">
-                              <i class="fa fa-sign-out"></i>
-                              <span>Logout</span>
-                           </a>
-                        </div>
+                        <?php if (isset($_SESSION['isLogin'])) : ?>
+                           <div>
+                              <a class="login" href="user-acount.php" rel="nofollow" title="Log in to your customer account">
+                                 <i class="fa fa-cog"></i>
+                                 <span>My Account</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a class="login" href="shop.php" rel="nofollow" title="Log in to your customer account">
+                                 <i class="fa fa-shopping-bag"></i>
+                                 <span>Shop</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a href="logout.php" title="Logout">
+                                 <i class="fa fa-sign-out"></i>
+                                 <span>Logout</span>
+                              </a>
+                           </div>
                         <?php else : ?>
-                        
-                        <div>
-                           <a class="login" href="user-login.php" rel="nofollow" title="Log in to your customer account">
-                              <i class="fa fa-sign-in"></i>
-                              <span>Sign in</span>
-                           </a>
-                        </div>
-                        <div>
-                           <a class="register" href="user-register.php" rel="nofollow" title="Register Account">
-                              <i class="fa fa-user"></i>
-                              <span>Register Account</span>
-                           </a>
-                        </div>
+
+                           <div>
+                              <a class="login" href="user-login.php" rel="nofollow" title="Log in to your customer account">
+                                 <i class="fa fa-sign-in"></i>
+                                 <span>Sign in</span>
+                              </a>
+                           </div>
+                           <div>
+                              <a class="register" href="user-register.php" rel="nofollow" title="Register Account">
+                                 <i class="fa fa-user"></i>
+                                 <span>Register Account</span>
+                              </a>
+                           </div>
                         <?php endif; ?>
                      </div>
                   </div>
                </div>
-               <div class="desktop_cart">
-                  <div class="blockcart block-cart cart-preview tiva-toggle">
-                     <div class="header-cart tiva-toggle-btn">
-                        <span class="cart-products-count">
-                           <?php
-                           if(isset($_SESSION["cart"])) {
-                              echo (count($_SESSION["cart"]));
-                           } else {
-                              echo "0";
-                           }
-                           ?></span> <!-- Here -->
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                     </div>
-                     <div class="dropdown-content">
-                        <div class="cart-content">
-                           <table>
-                              <tbody>
-                                 <tr>
-                                    <td class="product-image">
-                                       <a href="product-detail.php">
-                                          <img src="img/product/5.jpg" alt="Product">
-                                       </a>
-                                    </td>
-                                    <td>
-                                       <div class="product-name">
-                                          <a href="product-detail.php">Organic Strawberry Fruits</a>
-                                       </div>
-                                       <div>
-                                          2 x
-                                          <span class="product-price">£28.98</span>
-                                       </div>
-                                    </td>
-                                    <td class="action">
-                                       <a class="remove" href="#">
-                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                       </a>
-                                    </td>
-                                 </tr>
-                                 <tr class="total">
-                                    <td colspan="2">Total:</td>
-                                    <td>£92.96</td>
-                                 </tr>
-
-                                 <tr>
-                                    <td colspan="3" class="d-flex justify-content-center">
-                                       <div class="cart-button">
-                                          <a href="product-cart.php" title="View Cart">View Cart</a>
-                                          <a href="product-checkout.php" title="Checkout">Checkout</a>
-                                       </div>
-                                    </td>
-                                 </tr>
-                              </tbody>
-                           </table>
+               <a href="product-cart.php">
+                  <div class="desktop_cart">
+                     <div class="blockcart block-cart cart-preview tiva-toggle">
+                        <div class="header-cart tiva-toggle-btn">
+                           <span class="cart-products-count">
+                              <?php
+                              if (isset($_SESSION["cart"])) {
+                                 echo (count($_SESSION["cart"]));
+                              } else {
+                                 echo "0";
+                              }
+                              ?></span> <!-- Here -->
+                           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </div>
+                        <!-- <div class="dropdown-content">
+                           <div class="cart-content">
+                              <table>
+                                 <tbody>
+                                    <tr>
+                                       <td class="product-image">
+                                          <a href="product-detail.php">
+                                             <img src="img/product/5.jpg" alt="Product">
+                                          </a>
+                                       </td>
+                                       <td>
+                                          <div class="product-name">
+                                             <a href="product-detail.php">Organic Strawberry Fruits</a>
+                                          </div>
+                                          <div>
+                                             2 x
+                                             <span class="product-price">£28.98</span>
+                                          </div>
+                                       </td>
+                                       <td class="action">
+                                          <a class="remove" href="#">
+                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                          </a>
+                                       </td>
+                                    </tr>
+                                    <tr class="total">
+                                       <td colspan="2">Total:</td>
+                                       <td>£92.96</td>
+                                    </tr>
+   
+                                    <tr>
+                                       <td colspan="3" class="d-flex justify-content-center">
+                                          <div class="cart-button">
+                                             <a href="product-cart.php" title="View Cart">View Cart</a>
+                                             <a href="product-checkout.php" title="Checkout">Checkout</a>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div> -->
+   
                      </div>
-
                   </div>
-               </div>
+               </a>
+
             </div>
          </div>
       </div>
