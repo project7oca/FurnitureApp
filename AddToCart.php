@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
   if (isset($_SESSION['cart'])) {
     for ($i = 0; $i < count($_SESSION['cart']); $i++) {
       if ($_SESSION['cart'][$i]['product_id'] == $_GET['id'] && ($_GET['name'] == 'add'
-        || (($_GET['name'] == 'increase' || $_GET['addFromList']) || $_GET['name'] == "addFromDetail"))) {
+        || (($_GET['name'] == 'increase' || $_GET['addFromList']) || ($_GET['name'] == "addFromDetail" || $_GET['name']=='addFromHome')))) {
         $_SESSION['cart'][$i]["quantity"] += 1;
         $flag = true;
       } else if (
@@ -53,7 +53,10 @@ if (isset($_GET['id'])) {
     header('Location:product-cart.php');
   } else if ($_GET['name'] == 'addFromDetail') {
     header('Location:product-detail.php?id='.$_GET["id"].'');
-  } else {
+  } else if ($_GET['name'] == 'addFromHome') {
+    header('Location:index.php');
+  }
+   else {
     header('Location:shop.php');
   }
 }

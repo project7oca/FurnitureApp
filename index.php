@@ -8,6 +8,17 @@ if (isset($_SESSION['successMessage'])) {
 // var_dump($_SESSION["isLogin"]);
 
 // echo(count($_SESSION["cart"]));
+$servername = "localhost";
+$username = "root";
+$dbname = "project7";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -890,9 +901,9 @@ if (isset($_SESSION['successMessage'])) {
               </div>
             </div>
 
-            <div class="container">
+            <div class="container" style="display:flex;justify-item:center;align-items:center;">
               <div class="row">
-                <div class="section new-arrivals col-lg-6 col-xs-6">
+                <!-- <div class="section new-arrivals col-lg-6 col-xs-6">
                   <div class="tab-content">
                     <div class="title-product">
                       <h2>New Arrivals</h2>
@@ -1044,28 +1055,33 @@ if (isset($_SESSION['successMessage'])) {
                       </div>
                     </div>
                   </div>
-                </div>
-
+                </div> -->
+              
                 <div class="section best-sellers col-lg-6 col-xs-6">
+                  
                   <div class="tab-content">
-                    <div class="title-product">
-                      <h2>Best Sellers</h2>
+                    <div class="title-product" style="text-align:center;">
+                      <h2 style="text-align:center;">Best Sellers</h2>
                       <p>Discover our best sellers</p>
                     </div>
                     <div class="category-product owl-carousel owl-theme owl-loaded owl-drag">
+                    <?php $discount = $conn->prepare("SELECT * FROM products WHERE discount!=0");
+                      $discount->execute();
+                      foreach ($discount as $element) { ?>
                       <div class="item text-center">
                         <div class="product-miniature js-product-miniature item-one first-item">
                           <div class="thumbnail-container">
                             <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/26.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/24.jpg" alt="img">
+                              <!-- image-cover -->
+                              <img class="img-fluid " src=<?php echo $element['product_image'] ?> alt="img">
+                              <!-- <img class="img-fluid image-secondary" src="img/product/24.jpg" alt="img"> -->
                             </a>
-                            <div class="product-flags discount">-30%</div>
+                            <div class="product-flags discount">-<?php echo $element['discount'] ?>%</div>
                           </div>
                           <div class="product-description">
                             <div class="product-groups">
                               <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
+                                <a href="product-detail.html"><?php echo $element['product_name'] ?></a>
                               </div>
                               <div class="rating">
                                 <div class="star-content">
@@ -1078,8 +1094,8 @@ if (isset($_SESSION['successMessage'])) {
                               </div>
                               <div class="product-group-price">
                                 <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                  <del class="regular-price">£28.68</del>
+                                  <span class="price"><?php echo $element['product_price'] ?>JOD</span>
+                                  <!-- <del class="regular-price">£28.68</del> -->
                                 </div>
                               </div>
                             </div>
@@ -1087,21 +1103,19 @@ if (isset($_SESSION['successMessage'])) {
                               <form action="#" method="post" class="formAddToCart">
                                 <input type="hidden" name="token">
                                 <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                <a class="add-to-cart" href='AddToCart.php?id=<?php echo $element['id']; ?>&&name=addFromHome' data-button-action="add-to-cart">
                                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 </a>
                               </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                              <a href="product-detail.php?id=<?php echo $element['id']; ?>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                               </a>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="item text-center">
+                      <?php } ?>
+                      <!-- <div class="item text-center">
                         <div class="product-miniature js-product-miniature item-one first-item">
                           <div class="thumbnail-container">
                             <a href="product-detail.html">
@@ -1194,7 +1208,7 @@ if (isset($_SESSION['successMessage'])) {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>

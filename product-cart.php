@@ -99,10 +99,9 @@ try {
                         <?php
                         if (isset($_SESSION["cart"])) {
                           if (count($_SESSION["cart"]) == 0)
-                            echo "<h4>empty cart :(</h4>";
+                            echo "<h4>empty cart</h4>";
                           foreach ($_SESSION["cart"] as $element) {
                         ?>
-
                             <li class="cart-item">
                               <div class="product-line-grid row justify-content-between">
                                 <!--  product left content: image-->
