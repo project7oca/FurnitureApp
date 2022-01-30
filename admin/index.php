@@ -149,7 +149,7 @@ if (!isAdmin()) {
                         </li>
                         <li>
                             <a href="./comments/index.php">
-                                <i class="far fa-check-square"></i>Comments</a>
+                                <i class="fa fa-comments"></i>Comments</a>
                         </li>
                         <li>
                             <a href="./orders/index.php">
