@@ -609,7 +609,7 @@ session_start();
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price">$<?php echo $element['product_price']; ?></span>
+                                                                            <span class="price">jd<?php echo $element['product_price']; ?></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -622,10 +622,8 @@ session_start();
                                                                             <i class="fa fa-shopping-cart center" aria-hidden="true" ></i>
                                                                         </a>
                                                                     </form>
-                                                                    <a class="addToWishlist" href="#" data-rel="1" onclick="" style="display:flex;justify-content:center;align-items:center;">
-                                                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview" style="display:flex;justify-content:center;align-items:center;">
+                                                        
+                                                                    <a href="product-detail.php?id=<?php echo $element['id'];?>" class="quick-view hidden-sm-down" data-link-action="quickview" style="display:flex;justify-content:center;align-items:center;">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </div>
@@ -686,7 +684,7 @@ session_start();
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">$<?php echo $element['product_price']; ?></span>
+                                                                                    <span class="price">jd<?php echo $element['product_price']; ?></span>
                                                                                 </div>
                                                                             </div>
                                                                               
@@ -701,10 +699,8 @@ session_start();
                                                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart
                                                                                 </a>
                                                                             </form>
-                                                                            <a class="addToWishlist" href='#' data-rel="1" onclick="" style="display:flex;justify-content:center;align-items:center;">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview" style="display:flex;justify-content:center;align-items:center;">
+                                                                           
+                                                                            <a href="product-detail.php?id=<?php echo $element['id'];?>" class="quick-view hidden-sm-down" data-link-action="quickview" style="display:flex;justify-content:center;align-items:center;">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
