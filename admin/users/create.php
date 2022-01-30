@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+    header('location: ../index.php');
+}
+?>
 <!-- Fontfaces CSS-->
 <link href="css/font-face.css" rel="stylesheet" media="all">
 <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -85,7 +96,7 @@ $passSql = "";
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $nameSql, $passSql);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if (isset($_POST['email'])) {
-    if (!empty($_POST['fullname']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password'] && !empty($_POST['userRole']))) {
+    if (!empty($_POST['fullname']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['password'] && !strlen($_POST['userRole']) == 0)) {
 
         $fullname = $_POST['fullname'];
         $email = $_POST['email'];

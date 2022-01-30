@@ -26,7 +26,15 @@
          <div class="desktop_cart">
             <div class="blockcart block-cart cart-preview tiva-toggle">
                <div class="header-cart tiva-toggle-btn">
-                  <span class="cart-products-count">1</span>
+                  <span class="cart-products-count">
+                  <?php
+                           if(isset($_SESSION["cart"])) {
+                              echo (count($_SESSION["cart"]));
+                           } else {
+                              echo "0";
+                           }
+                           ?>
+                  </span>
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                </div>
                <div class="dropdown-content">

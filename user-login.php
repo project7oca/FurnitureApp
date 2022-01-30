@@ -76,9 +76,14 @@ if (isLoggedIn()) {
             if (mysqli_num_rows($result) == 1) {
 
                 if ($loggedUser['userRole'] == 1) {
+
                     $_SESSION['userRole'] = true;
+                    $_SESSION['isLogin'] = "true";
                     $_SESSION['name'] = $loggedUser['fullname'];
+                    $_SESSION['email'] = $loggedUser['email'];
+
                     header("location: ./admin");
+
                 } else {
                     $_SESSION['isLogin'] = "true";
 

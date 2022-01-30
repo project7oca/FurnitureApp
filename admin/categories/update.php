@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+    header('location: ../index.php');
+}
+?>
+<?php
 
 
 
