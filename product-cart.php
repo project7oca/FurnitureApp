@@ -99,7 +99,7 @@ try {
                         <?php
                         if (isset($_SESSION["cart"])) {
                           if (count($_SESSION["cart"]) == 0)
-                            echo "<h4>empty cart</h4>";
+                            echo "<h4>You Don't Have Any Product In Your Cart</h4>";
                           foreach ($_SESSION["cart"] as $element) {
                         ?>
                             <li class="cart-item">
@@ -170,9 +170,21 @@ try {
                       </ul>
                     </div>
                   </div>
-                  <a href="product-checkout.php" class="continue btn btn-primary pull-xs-right">
-                    Continue
-                  </a>
+                  <?php
+                  if (count($_SESSION["cart"]) != 0) {
+                  ?>
+                    <a href="product-checkout.php" class="continue btn btn-primary pull-xs-right">
+                      Continue
+                    </a>
+                  <?php
+                  } else {
+                  ?>
+                    <a href="product-shop.php" class="continue btn btn-primary pull-xs-right">
+                      Add Item
+                    </a>
+                  <?php
+                  }
+                  ?>
                 </div>
                 <div class="cart-grid-right col-xs-12 col-lg-3">
                   <div class="cart-summary">
