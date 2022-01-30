@@ -261,9 +261,9 @@ if (!isAdmin()) {
                             <td><?php echo $row['product_price']; ?> </td>
                             <td><?php echo $row['product_desc']; ?> </td>
                             <td><?php echo $row['discount']; ?> </td>
+                            <td><?php echo $row['product_image']; ?> </td>
+                            <td><?php echo $row['category_id']; ?> </td>
                             <td><?php echo $row['stock']; ?> </td>
-                            <td><?php echo $row['category_id']; ?> </td>
-                            <td><?php echo $row['category_id']; ?> </td>
                             <td>
                               <form action="edit.php" method="POST">
                                 <input type="hidden" name="edit" value="<?php echo $row['id']; ?>">

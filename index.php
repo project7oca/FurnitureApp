@@ -591,7 +591,7 @@ try {
             <!-- SHOP THE LOOK -->
             <div class="section spacing-10 groupbanner-special">
               <div class="title-block">
-                <span>Shop The LookBook 2018</span>
+                <span>Shop The LookBook 2022</span>
                 <span>LookBook</span>
                 <span>HAND-PICKED ARRIVALS FROM THE BEST DESIGNER</span>
               </div>
@@ -610,13 +610,13 @@ try {
                             <div class="content-lookbook lookbook-custom">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip2.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Lorem ipsum dolor</a>
+                                    <a href="product-detail.php?id=500">Lorem ipsum dolor</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -631,7 +631,7 @@ try {
                                     £52.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -643,13 +643,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip1.jpg" alt="contrary-to-popular-belief">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                    <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -664,7 +664,7 @@ try {
                                     £68.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -687,13 +687,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip5.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Lorem ipsum dolor sit</a>
+                                    <a href="product-detail.php?id=500">Lorem ipsum dolor sit</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -708,7 +708,7 @@ try {
                                     £45.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -720,13 +720,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip6.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Lorem ipsum dolor</a>
+                                    <a href="product-detail.php?id=500">Lorem ipsum dolor</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -741,7 +741,7 @@ try {
                                     £21.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -753,13 +753,13 @@ try {
                             <div class="content-lookbook lookbook-custom">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip4.jpg" alt="mug-the-adventure-begins">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                    <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -774,7 +774,7 @@ try {
                                     £11.90
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -797,13 +797,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip4.jpg" alt="mug-the-adventure-begins">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Sed vel malesuada lorem</a>
+                                    <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -818,7 +818,7 @@ try {
                                     £11.90
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -830,13 +830,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/product/13.jpg" alt="brown-bear-vector-graphics">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Orci varius natoque penatibus</a>
+                                    <a href="product-detail.php?id=500">Orci varius natoque penatibus</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -851,7 +851,7 @@ try {
                                     £9.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -863,13 +863,13 @@ try {
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
                                 <div class="item-thumb">
-                                  <a href="product-detail.html">
+                                  <a href="product-detail.php?id=500">
                                     <img src="img/home/icon-tolltip6.jpg" alt="lorem-ipsum-dolor-sit-amet">
                                   </a>
                                 </div>
                                 <div class="content-bottom">
                                   <div class="item-title">
-                                    <a href="product-detail.html">Etiam congue nisl nec</a>
+                                    <a href="product-detail.php?id=500">Etiam congue nisl nec</a>
                                   </div>
                                   <div class="rating">
                                     <div class="star-content">
@@ -884,7 +884,7 @@ try {
                                     £16.00
                                   </div>
                                   <div class="readmore">
-                                    <a href="product-detail.html">View More</a>
+                                    <a href="product-detail.php?id=500">View More</a>
                                   </div>
                                 </div>
                               </div>
@@ -901,314 +901,69 @@ try {
               </div>
             </div>
 
-            <div class="container" style="display:flex;justify-item:center;align-items:center;">
-              <div class="row">
-                <!-- <div class="section new-arrivals col-lg-6 col-xs-6">
-                  <div class="tab-content">
-                    <div class="title-product">
-                      <h2>New Arrivals</h2>
-                      <p>Discover our new products</p>
-                    </div>
-                    <div class="category-product owl-carousel owl-theme owl-loaded owl-drag">
-                      <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/6.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/4.jpg" alt="img">
-                            </a>
-                            <div class="product-flags discount">-30%</div>
+            <div class="container">
+              <div class="row" style="display: flex;margin: 3rem auto 2rem;    justify-content: center; align-items: center;">
 
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                  <del class="regular-price">£28.68</del>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/10.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/11.jpg" alt="img">
-                            </a>
-                            <div class="product-flags discount">-10%</div>
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                  <del class="regular-price">£28.68</del>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/16.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
-                            </a>
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-              
+
                 <div class="section best-sellers col-lg-6 col-xs-6">
-                  
+
                   <div class="tab-content">
                     <div class="title-product" style="text-align:center;">
                       <h2 style="text-align:center;">Best Sellers</h2>
                       <p>Discover our best sellers</p>
                     </div>
                     <div class="category-product owl-carousel owl-theme owl-loaded owl-drag">
-                    <?php $discount = $conn->prepare("SELECT * FROM products WHERE discount!=0");
+                      <?php $discount = $conn->prepare("SELECT * FROM products WHERE discount!=0");
                       $discount->execute();
                       foreach ($discount as $element) { ?>
-                      <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <!-- image-cover -->
-                              <img class="img-fluid " src=<?php echo $element['product_image'] ?> alt="img">
-                              <!-- <img class="img-fluid image-secondary" src="img/product/24.jpg" alt="img"> -->
-                            </a>
-                            <div class="product-flags discount">-<?php echo $element['discount'] ?>%</div>
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html"><?php echo $element['product_name'] ?></a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price"><?php echo $element['product_price'] ?>JOD</span>
-                                  <!-- <del class="regular-price">£28.68</del> -->
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href='AddToCart.php?id=<?php echo $element['id']; ?>&&name=addFromHome' data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a href="product-detail.php?id=<?php echo $element['id']; ?>" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
+                        <div class="item text-center">
+                          <div class="product-miniature js-product-miniature item-one first-item">
+                            <div class="thumbnail-container">
+                              <a href="product-detail.php?id=500">
+                                <!-- image-cover -->
+                                <img class="img-fluid " src="img/product/<?php echo $element['product_image'] ?>" alt="img">
+                                <!-- <img class="img-fluid image-secondary" src="img/product/24.jpg" alt="img"> -->
                               </a>
+                              <div class="product-flags discount">-<?php echo $element['discount'] ?>%</div>
+                            </div>
+                            <div class="product-description">
+                              <div class="product-groups">
+                                <div class="product-title">
+                                  <a href="product-detail.php?id=500"><?php echo $element['product_name'] ?></a>
+                                </div>
+                                <div class="rating">
+                                  <div class="star-content">
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                    <div class="star"></div>
+                                  </div>
+                                </div>
+                                <div class="product-group-price">
+                                  <div class="product-price-and-shipping">
+                                    <span class="price"><?php echo $element['product_price'] ?>JOD</span>
+                                    <!-- <del class="regular-price">£28.68</del> -->
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="product-buttons d-flex justify-content-center">
+                                <form action="#" method="post" class="formAddToCart">
+                                  <input type="hidden" name="token">
+                                  <input type="hidden" name="id_product" value="1">
+                                  <a class="add-to-cart" href='AddToCart.php?id=<?php echo $element['id']; ?>&&name=addFromHome' data-button-action="add-to-cart">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                  </a>
+                                </form>
+                                <a href="product-detail.php?id=<?php echo $element['id']; ?>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                  <i class="fa fa-eye" aria-hidden="true"></i>
+                                </a>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
                       <?php } ?>
-                      <!-- <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/13.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
-                            </a>
-                            <div class="product-flags discount">-10%</div>
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                  <del class="regular-price">£28.68</del>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item text-center">
-                        <div class="product-miniature js-product-miniature item-one first-item">
-                          <div class="thumbnail-container">
-                            <a href="product-detail.html">
-                              <img class="img-fluid image-cover" src="img/product/12.jpg" alt="img">
-                              <img class="img-fluid image-secondary" src="img/product/4.jpg" alt="img">
-                            </a>
-                          </div>
-                          <div class="product-description">
-                            <div class="product-groups">
-                              <div class="product-title">
-                                <a href="product-detail.html">Nulla et justo non augue</a>
-                              </div>
-                              <div class="rating">
-                                <div class="star-content">
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                  <div class="star"></div>
-                                </div>
-                              </div>
-                              <div class="product-group-price">
-                                <div class="product-price-and-shipping">
-                                  <span class="price">£20.08</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="product-buttons d-flex justify-content-center">
-                              <form action="#" method="post" class="formAddToCart">
-                                <input type="hidden" name="token">
-                                <input type="hidden" name="id_product" value="1">
-                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                </a>
-                              </form>
-                              <a class="addToWishlist wishlistProd_1" href="#" data-rel="1" onclick="">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                              </a>
-                              <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div> -->
+
                     </div>
                   </div>
                 </div>
@@ -1220,35 +975,35 @@ try {
               <div class="row">
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="#">
+                    <a href="./shop.php">
                       <img class="img-fluid width-100" src="img/home/effect5.jpg" alt="banner-1" title="banner-1">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="#">
+                    <a href="./shop.php">
                       <img class="img-fluid width-100" src="img/home/effect6.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="#">
+                    <a href="./shop.php">
                       <img class="img-fluid width-100" src="img/home/effect7.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 banner1">
                   <div class="effect">
-                    <a href="#">
+                    <a href="./shop.php">
                       <img class="img-fluid width-100" src="img/home/effect8.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 banner1">
                   <div class="effect">
-                    <a href="#">
+                    <a href="./shop.php">
                       <img class="img-fluid width-100" src="img/home/effect9.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>

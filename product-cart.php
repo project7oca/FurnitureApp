@@ -170,7 +170,7 @@ try {
                       </ul>
                     </div>
                   </div>
-                  <a href="product-checkout.html" class="continue btn btn-primary pull-xs-right">
+                  <a href="product-checkout.php" class="continue btn btn-primary pull-xs-right">
                     Continue
                   </a>
                 </div>
