@@ -1,4 +1,14 @@
+<?php
+session_start();
 
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+    header('location: ../index.php');
+}
+?>
 <?php
 
 $dbHost = "localhost";
@@ -19,6 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == 'GET') {
       $value = $_GET["id"];
             $deleteQuery = $pdo->prepare("DELETE FROM comments WHERE id='$value' ");
             $deleteQuery->execute();
-            header('location: http://localhost/project7/FurnitureApp/admin/comments/index.php');
+            header('location: index.php');
 }
 ?>

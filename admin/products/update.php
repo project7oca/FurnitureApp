@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+    header('location: ../index.php');
+}
+?>
+<?php
 $connection = mysqli_connect("localhost", "root", "", "project7");
 
 if (isset($_POST['update'])) {
@@ -13,5 +24,5 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE products SET product_name='$product_name', product_price='$product_price',product_desc='$product_desc'
     , discount='$discount', product_image='$product_image' , category_id='$category_id' WHERE id='$id'";
     $query = $connection->query($sql);
-    header('location:index.php');
+    header('location: index.php');
 }

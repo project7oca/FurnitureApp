@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+    header('location: ../index.php');
+}
+?>
+<?php
 
 $dbHost = "localhost";
 $dbUser = "root";
@@ -18,6 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == 'GET') {
       $value = $_GET["id"];
             $deleteQuery = $pdo->prepare("DELETE FROM products WHERE id='$value' ");
             $deleteQuery->execute();
-            header('location: http://localhost/project7/FurnitureApp/admin/products/index.php');
+            header('location: index.php');
 }
 ?>

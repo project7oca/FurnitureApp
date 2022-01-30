@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+include('../../config/functions.php');
+if (!isLoggedIn()) {
+    header('location: ../index.php');
+}
+if (!isAdmin()) {
+  header('location: ../index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -464,7 +475,7 @@
              $query_run = mysqli_query($connection, $query);
 
 
-             header("Location:index.php");
+             header("Location: index.php");
             }
 
             ?>
