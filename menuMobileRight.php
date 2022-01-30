@@ -1,139 +1,55 @@
 <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up active d-md-none">
- <div class="content-boxpage col">
-  <div class="box-header d-flex justify-content-between align-items-center">
-   <div class="title-box">Menu</div>
-   <div class="close-box">Close</div>
-  </div>
-  <div class="box-content">
-   <nav>
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div id="megamenu" class="clearfix">
-     <ul class="menu level1">
-      <li class="item home-page has-sub">
-       <span class="arrow collapsed" data-toggle="collapse" data-target="#home1" aria-expanded="true" role="status">
-        <i class="zmdi zmdi-minus"></i>
-        <i class="zmdi zmdi-plus"></i>
-       </span>
-       <a href="index-2.html" title="Home">
-        <i class="fa fa-home" aria-hidden="true"></i>Home</a>
-       <div class="subCategory collapse" id="home1" aria-expanded="true" role="status">
-        <ul>
-         <li class="item">
-          <a href="index-2.html" title="Home Page 1">Home Page 1</a>
-         </li>
-         <li class="item">
-          <a href="home2.html" title="Home Page 2">Home Page 2</a>
-         </li>
-         <li class="item">
-          <a href="home3.html" title="Home Page 3">Home Page 3</a>
-         </li>
-         <li class="item">
-          <a href="home4.html" title="Home Page 4">Home Page 4</a>
-         </li>
-         <li class="item">
-          <a href="home5.html" title="Home Page 5">Home Page 5</a>
-         </li>
-        </ul>
-       </div>
-      </li>
-      <li class="item has-sub">
-       <span class="arrow collapsed" data-toggle="collapse" data-target="#blog" aria-expanded="false" role="status">
-        <i class="zmdi zmdi-minus"></i>
-        <i class="zmdi zmdi-plus"></i>
-       </span>
-       <a href="#" title="Blog">
-        <i class="fa fa-address-book" aria-hidden="true"></i>Blog</a>
-
-       <div class="subCategory collapse" id="blog" aria-expanded="true" role="status">
-        <ul>
-         <li class="item">
-          <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
-         </li>
-         <li class="item">
-          <a href="blog-list-sidebar-left2.html" title="Blog List (Sidebar Left) 2">Blog List (Sidebar Left) 2</a>
-         </li>
-         <li class="item">
-          <a href="blog-list-sidebar-right.html" title="Category Blog (Right column)">Blog List (Sidebar Right)</a>
-         </li>
-         <li class="item">
-          <a href="blog-list-no-sidebar.html" title="Blog List (No Sidebar)">Blog List (No Sidebar)</a>
-         </li>
-         <li class="item">
-          <a href="blog-grid-no-sidebar.html" title="Blog Grid (No Sidebar)">Blog Grid (No Sidebar)</a>
-         </li>
-         <li class="item">
-          <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
-         </li>
-        </ul>
-       </div>
-      </li>
-      <li class="item group has-sub">
-       <span class="arrow collapsed" data-toggle="collapse" data-target="#page" aria-expanded="false" role="status">
-        <i class="zmdi zmdi-minus"></i>
-        <i class="zmdi zmdi-plus"></i>
-       </span>
-       <a href="#" title="Page">
-        <i class="fa fa-file-text-o" aria-hidden="true"></i>page</a>
-       <div class="subCategory collapse" id="page" aria-expanded="true" role="status">
-        <ul class="group-page">
-         <li class="item container group">
-          <div>
-           <ul>
-            <li class="item col-md-4 ">
-             <span class="menu-title">Category Style</span>
-             <div class="menu-content">
-              <ul class="col">
-               <li>
-                <a href="product-grid-sidebar-left.html">Product Grid (Sidebar Left)</a>
-               </li>
-               <li>
-                <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
-               </li>
-               <li>
-                <a href="product-list-sidebar-left.html">Product List (Sidebar Left) </a>
-               </li>
-              </ul>
-             </div>
-            </li>
-            <li class="item col-md-4 html">
-             <span class="menu-title">Product Detail Style</span>
-             <div class="menu-content">
-              <ul>
-               <li>
-                <a href="product-detail.html">Product Detail (Sidebar Left)</a>
-               </li>
-               <li>
-                <a href="#">Product Detail (Sidebar Right)</a>
-               </li>
-              </ul>
-             </div>
-            </li>
-            <li class="item col-md-4 html">
-             <span class="menu-title">Bonus Page</span>
-             <div class="menu-content">
-              <ul>
-               <li>
-                <a href="404.html">404 Page</a>
-               </li>
-               <li>
-                <a href="about-us.html">About Us Page</a>
-               </li>
-              </ul>
-             </div>
-            </li>
-           </ul>
-          </div>
-         </li>
-        </ul>
-       </div>
-      </li>
-      <li class="item has-sub">
-       <a href="contact.html" title="Contact us">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>Contact us</a>
-      </li>
-     </ul>
+  <div class="content-boxpage col">
+    <div class="box-header d-flex justify-content-between align-items-center">
+      <div class="title-box">Menu</div>
+      <div class="close-box">Close</div>
     </div>
-   </nav>
+    <div class="box-content">
+      <nav>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div id="megamenu" class="clearfix">
+          <ul class="menu level1">
+
+            <?php if (isset($_SESSION['isLogin'])) : ?>
+
+              <li class="item home-page has-sub">
+                <a href="." title="Home">
+                  <i class="fa fa-home" aria-hidden="true"></i>Home</a>
+              </li>
+
+              <li class="item has-sub">
+                <a href="user-acount.php" title="My account">
+                <i class="fas fa-id-card"></i></i>My account</a>
+              </li>
+              <li class="item has-sub">
+                <a href="product-grid-sidebar-left.php" title="Shop">
+                <i class="fa fa-shopping-bag"></i></i>Shop</a>
+              </li>
+              <li class="item has-sub">
+                <a href="logout.php" title="Logout">
+                <i class="fas fa-sign-out-alt"></i></i>Logout</a>
+              </li>
+
+            <?php else : ?>
+
+              <li class="item home-page has-sub">
+                <a href="." title="Home">
+                  <i class="fa fa-home" aria-hidden="true"></i>Home</a>
+              </li>
+              <li class="item home-page has-sub">
+                <a href="user-login.php" title="Login">
+                <i class="fa fa-sign-in"></i></i>Sign in</a>
+              </li>
+              <li class="item home-page has-sub">
+                <a href="user-register.php" title="Home">
+                <i class="fa fa-user"></i></i>Sign up</a>
+              </li>
+
+            <?php endif; ?>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
- </div>
 </div>
