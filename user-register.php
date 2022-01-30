@@ -113,7 +113,7 @@ if (isLoggedIn()) {
         <div class="wrap-banner">
 
             <!-- breadcrumb -->
-            <nav class="breadcrumb-bg">
+            <!-- <nav class="breadcrumb-bg">
                 <div class="container no-index">
                     <div class="breadcrumb">
                         <ol>
@@ -130,7 +130,7 @@ if (isLoggedIn()) {
                         </ol>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
         </div>
 
         <!-- main -->

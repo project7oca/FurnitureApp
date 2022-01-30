@@ -67,7 +67,7 @@ try {
     <!-- main -->
     <div id="wrapper-site">
       <!-- breadcrumb -->
-      <nav class="breadcrumb-bg">
+      <!-- <nav class="breadcrumb-bg">
         <div class="container no-index">
           <div class="breadcrumb">
             <ol>
@@ -84,7 +84,7 @@ try {
             </ol>
           </div>
         </div>
-      </nav>
+      </nav> -->
       <div class="container">
         <div class="row">
           <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">

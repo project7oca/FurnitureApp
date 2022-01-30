@@ -135,7 +135,7 @@ function lastOrder($id)
  <div id="checkout" class="main-content">
   <div class="wrap-banner">
    <!-- breadcrumb -->
-   <nav class="breadcrumb-bg">
+   <!-- <nav class="breadcrumb-bg">
     <div class="container no-index">
      <div class="breadcrumb">
       <ol>
@@ -152,7 +152,7 @@ function lastOrder($id)
       </ol>
      </div>
     </div>
-   </nav>
+   </nav> -->
 
    <!-- main -->
    <div id="wrapper-site">

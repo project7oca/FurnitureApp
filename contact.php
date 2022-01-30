@@ -53,7 +53,7 @@ session_start();
             <div id="content-wrapper">
 
                 <!-- breadcrumb -->
-                <nav class="breadcrumb-bg">
+                <!-- <nav class="breadcrumb-bg">
                     <div class="container no-index">
                         <div class="breadcrumb">
                             <ol>
@@ -70,7 +70,7 @@ session_start();
                             </ol>
                         </div>
                     </div>
-                </nav>
+                </nav> -->
                 <div id="main">
                     <div class="page-home">
                         <div class="container">

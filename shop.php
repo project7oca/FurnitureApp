@@ -75,7 +75,7 @@ try {
                 <div id="main">
                     <div class="page-home">
                         <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
+                        <!-- <nav class="breadcrumb-bg">
                             <div class="container no-index">
                                 <div class="breadcrumb">
                                     <ol>
@@ -97,7 +97,7 @@ try {
                                     </ol>
                                 </div>
                             </div>
-                        </nav>
+                        </nav> -->
 
                         <div class="container">
                             <div class="content">
