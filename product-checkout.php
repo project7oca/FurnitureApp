@@ -79,9 +79,15 @@ function lastOrder($id)
 
 
 ?>
-
 <!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<![endif]-->
 <html lang="en">
+
+
+<!-- product-checkout07:12-->
 
 <head>
  <!-- Basic Page Needs -->
@@ -119,7 +125,6 @@ function lastOrder($id)
 <body class="product-checkout checkout-cart">
  <?php include_once("./navbar.php"); ?>
 
-
  <!-- main content -->
  <div id="checkout" class="main-content">
   <div class="wrap-banner">
@@ -156,7 +161,6 @@ function lastOrder($id)
             <span class="step-number">1</span>Order details
            </h3>
           </div>
-
           <div class="content">
            <div class="tab-content">
             <div class="tab-pane fade in active show" id="checkout-guest-form" role="tabpanel">
@@ -164,141 +168,105 @@ function lastOrder($id)
               <div>
                <input type="hidden" name="id_customer" value="">
                <div class="form-group row">
-                <input class="form-control" name="fullname" type="text" placeholder="Full name" value='<?php echo (isset($row['fullname']) ? $row['fullname'] : ''); ?>' required>
+                <input class="form-control" name="fullname" type="text" placeholder="Full name" value='<?php echo (isset($row['fullname']) ? $row['fullname'] : ''); ?>' disabled>
                </div>
                <div class="form-group row">
-                <input class="form-control" name="email" type="email" placeholder="Email" value='<?php echo (isset($row['email']) ? $row['email'] : ''); ?>' required>
+                <input class="form-control" name="email" type="email" placeholder="Email" value='<?php echo (isset($row['email']) ? $row['email'] : ''); ?>' disabled>
                </div>
                <div class="form-group row">
-                <input class="form-control" name="phone" type="tel" placeholder="Phone" value='<?php echo (isset($row['phone']) ? $row['phone'] : ''); ?>' required>
+                <input class="form-control" name="phone" type="tel" placeholder="Phone" value='<?php echo (isset($row['phone']) ? $row['phone'] : ''); ?>' disabled>
                </div>
-
-
 
                <div class="form-group row">
                 <input class="form-control" name="address" type="text" placeholder="Address" required>
                </div>
 
-
-
-
-               <div class="checkout-personal-step">
-                <h3 class="step-title h3 info">
-                 <span class="step-number">2</span>Payment
-                </h3>
-                <div class="form-group row check-input">
-                 <span class="custom-checkbox d-inline-flex">
-                  <input id="cash" class="check" name="optin" type="radio" value="1" required>
-                  <label class="label-absolute" for="cash">Cash On Delivery</label>
-                 </span>
-                </div>
-                <div class="form-group row check-input">
-                 <span class="custom-checkbox d-inline-flex">
-                  <input id="paypal" class="check" name="optin" type="radio" value="1">
-                  <label class="label-absolute" for="paypal">Paybal</label>
-                 </span>
-                </div>
+               <div class="form-group row check-input">
+                <span class="custom-checkbox d-inline-flex">
+                 <input id="cash" class="check" name="optin" type="radio" value="1" required>
+                 <label class="label-absolute" for="cash">Cash On Delivery</label>
+                </span>
                </div>
-               <?php
+               <div class="form-group row check-input">
+                <span class="custom-checkbox d-inline-flex">
+                 <input id="paypal" class="check" name="optin" type="radio" value="1">
+                 <label class="label-absolute" for="paypal">Paybal</label>
+                </span>
+               </div>
 
 
+              </div>
+              <div class="clearfix">
+               <div class="row">
+                <input type="hidden" name="submitCreate" value="1">
 
-
-               ?>
-               <div class="cart-grid-right col-xs-12 col-lg-3">
-                <div class="cart-summary">
-                 <div class="cart-detailed-totals">
-                  <div class="cart-summary-products">
-                   <div class="summary-label">There are <?php echo $_SESSION['cart']['quantity']; ?> items in your cart</div>
-                  </div>
-                  <div class="cart-summary-line" id="cart-subtotal-products">
-                   <span class="label js-subtotal">
-                    Total
-                   </span>
-                   <span class="value"><?php echo $_SESSION['cart']['totalprice']; ?></span>
-                  </div>
-                  <div class="cart-summary-line" id="cart-subtotal-shipping">
-                   <span class="label">
-                    Total Shipping:
-                   </span>
-                   <span class="value">Free</span>
-                   <div>
-                    <small class="value"></small>
-                   </div>
-                  </div>
-
-                 </div>
-                </div>
-
+                <button class="continue btn btn-primary pull-xs-right" name="submit" data-link-action="register-new-customer" type="submit" value="1">
+                 Place Order
+                </button>
                </div>
               </div>
+             </form>
             </div>
-
-            <!-- <div class="desc-password">
-                                                                <span class="font-weight-bold">Create an account</span>
-                                                                <span>(optional)</span>
-                                                                <br>
-                                                                <span class="text-muted">And save time on your next order!</span>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <div class="input-group js-parent-focus">
-                                                                    <input class="form-control js-child-focus" name="password" type="password" placeholder=" Password">
-                                                                </div>
-                                                            </div>
-                                                            <div class="hidden-comment">
-                                                                <div class="form-group row">
-                                                                    <input class="form-control" name="birthday" type="text" value="" placeholder=" Birthdate">
-                                                                </div>
-                                                            </div> -->
-            <!-- <div class="form-group row check-input">
-                                                                <span class="custom-checkbox d-inline-flex">
-                                                                    <input class="check" name="optin" type="checkbox" value="1">
-                                                                    <label class="label-absolute">Receive offers from our partners</label>
-                                                                </span>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <span class="custom-checkbox d-inline-flex check-input">
-                                                                    <input class="check" name="newsletter" type="checkbox" value="1">
-                                                                    <label>Sign up for our newsletter
-                                                                        <br>
-                                                                        <em>You may unsubscribe at any moment. For that purpose,
-                                                                            please find our contact info in the legal notice.
-                                                                        </em>
-                                                                    </label>
-                                                                </span>
-                                                            </div>
-                                                        </div> -->
-            <div class="clearfix">
-             <div class="row">
-              <input type="hidden" name="submitCreate" value="1">
-
-              <button class="continue btn btn-primary pull-xs-right" name="submit" data-link-action="register-new-customer" type="submit" value="1">
-               Place Order
-              </button>
-             </div>
+            <div class="tab-pane fade" id="checkout-login-form" role="tabpanel">
+             <form id="login-form" action="#" method="post" class="customer-form">
+              <div>
+               <input type="hidden" name="back" value="">
+               <div class="form-group row">
+                <input class="form-control" name="email" type="email" placeholder="Email">
+               </div>
+               <div class="form-group row">
+                <div class="input-group js-parent-focus">
+                 <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password">
+                </div>
+               </div>
+               <div class="row">
+                <div class="forgot-password">
+                 <a href="user-reset-password.html" rel="nofollow">
+                  Forgot your password?
+                 </a>
+                </div>
+               </div>
+              </div>
+              <div class="clearfix">
+               <div class="row">
+                <button class="continue btn btn-primary pull-xs-right" name="continue" data-link-action="sign-in" type="submit" value="1">
+                 Continue
+                </button>
+               </div>
+              </div>
+             </form>
             </div>
-            </form>
            </div>
-
-
-
-
-
           </div>
          </div>
-         <!-- <div class="checkout-personal-step">
-                                            <h3 class="step-title h3">
-                                                <span class="step-number">2</span>Addresses
-                                            </h3>
-                                        </div>
-                                        <div class="checkout-personal-step">
-                                            <h3 class="step-title h3">
-                                                <span class="step-number">3</span>Shipping Method
-                                            </h3>
-                                        </div> -->
+         <div class="cart-grid-right col-xs-12 col-lg-3">
+          <div class="cart-summary">
+           <div class="cart-detailed-totals">
+            <div class="cart-summary-products">
+             <div class="summary-label">There are <?php echo isset($_SESSION['cart']['quantity']) ? $_SESSION['cart']['quantity'] : 0; ?> item in your cart</div>
+            </div>
+            <div class="cart-summary-line" id="cart-subtotal-products">
+             <span class="label js-subtotal">
+              Total price:
+             </span>
+             <span class="value"><?php echo isset($_SESSION['cart']['totalprice']) ? $_SESSION['cart']['totalprice']
+                                  : 0; ?></span>
+            </div>
+            <div class="cart-summary-line" id="cart-subtotal-shipping">
+             <span class="label">
+              Total Shipping:
+             </span>
+             <span class="value">Free</span>
+             <div>
+              <small class="value"></small>
+             </div>
+            </div>
 
+           </div>
+          </div>
+
+         </div>
         </div>
-
        </div>
       </div>
      </div>
@@ -310,10 +278,8 @@ function lastOrder($id)
  <!-- footer -->
  <?php include_once("./footer.php"); ?>
 
-
  <!-- back top top -->
  <?php include_once("./backToTopBtn.php"); ?>
-
 
  <!-- menu mobie left -->
 
@@ -326,7 +292,6 @@ function lastOrder($id)
  <?php
  // include_once("./pagePreLoader.php")
  ?>
-
 
  <!-- Vendor JS -->
  <script src="libs/jquery/jquery.min.js"></script>
