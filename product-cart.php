@@ -449,7 +449,6 @@ try {
     <div class="row">
      <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
       <section id="main">
-          <div><?php if(!isset($_SESSION['cart']))echo "Cart is empty!";?></div>
        <div class="cart-grid row">
         <div class="col-md-9 col-xs-12 check-info">
          <h1 class="title-page">Shopping Cart</h1>
@@ -459,9 +458,11 @@ try {
            <ul class="cart-items">
             <?php
              if (isset($_SESSION["cart"])) {
+                 if(count($_SESSION["cart"])==0)
+                  echo "<h4>empty cart :(</h4>";
              foreach ($_SESSION["cart"] as $element) {
             ?>
-            
+               
               <li class="cart-item">
                <div class="product-line-grid row justify-content-between">
                 <!--  product left content: image-->
@@ -477,7 +478,7 @@ try {
                   <a class="label" href="product-detail.html" data-id_customization="0"><?php echo $element['product_name']; ?></a>
                  </div>
                  <div class="product-line-info product-price">
-                  <span class="value">$<?php echo $element['product_price']; ?></span>
+                  <span class="value">jd<?php echo $element['product_price']; ?></span>
                  </div>
                  <!-- <div class="product-line-info">
                 <span class="label-atrr">Size:</span>
@@ -508,7 +509,7 @@ try {
                   <div class="col-md-5 col price">
                    <div class="label">Total:</div>
                    <div class="product-price total">
-                    $<?php echo $element['product_price'] * $element['quantity']; ?>
+                    jd<?php echo $element['product_price'] * $element['quantity']; ?>
                    </div>
                   </div>
                   <div class="col-md-2 col text-xs-right align-self-end">
@@ -551,9 +552,15 @@ try {
             $sum+=$_SESSION['cart'][$i]['product_price']*$_SESSION['cart'][$i]['quantity']; }}
            ?>
           
-          <span class='value'>$<?php echo $sum; ?></span>
+          <span class='value'>jd<?php echo $sum; ?></span>
 
-
+            <?php
+                if(isset($_SESSION['cart'])){
+                    
+                    $_SESSION['cart-summary']=['total'=>$sum,'item-number'=>count($_SESSION['cart'])];
+                    // var_dump($_SESSION['cart-summary']);
+                }
+            ?>
 
            </div>
            <div class="cart-summary-line" id="cart-subtotal-shipping">

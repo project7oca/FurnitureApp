@@ -1,5 +1,6 @@
 <?php
-$productId = 3;
+//  echo $_GET['id'];
+$productId =$_GET['id'];
 $currentUserId = 1;
 $servername = "localhost";
 $username = "root";
@@ -546,10 +547,10 @@ if (isset($_POST['newUserReview'])) {
                    </span> -->
                   </div>
                   <span class="add">
-                   <button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
+                   <a href="AddToCart.php?id=<?php echo $productId;?>&&name=addFromDetail"><button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span>Add to cart</span>
-                   </button>
+                   </button></a>
 
                   </span>
                  </div>

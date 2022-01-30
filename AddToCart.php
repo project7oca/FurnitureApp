@@ -21,7 +21,7 @@ session_start();
         if(isset($_SESSION['cart'])){
             for($i=0;$i<count($_SESSION['cart']);$i++){
              if($_SESSION['cart'][$i]['product_id']==$_GET['id'] && ($_GET['name']=='add' 
-             || ($_GET['name']=='increase'|| $_GET['addFromList']))){
+             || (($_GET['name']=='increase'|| $_GET['addFromList'] )|| $_GET['addFromDetail']))){
                    $_SESSION['cart'][$i]["quantity"]+=1;
                    $flag=true;
                   
@@ -53,7 +53,10 @@ session_start();
         }
         else if($_GET['name']=='remove'){
             header('Location:product-cart.php');
-        }else{
+        } else if($_GET['name']=='addFromDetail'){
+            header('Location:product-detail.php');
+        }
+        else{
             header('Location:product-grid-sidebar-left.php');
         }
     }
