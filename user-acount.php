@@ -51,7 +51,7 @@ if (!isLoggedIn()) {
 
 <body class="user-acount">
 
-<?php include_once("./navbar.php"); ?>
+    <?php include_once("./navbar.php"); ?>
 
 
     <!-- main content -->

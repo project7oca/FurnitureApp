@@ -83,7 +83,6 @@ if (isLoggedIn()) {
                     $_SESSION['email'] = $loggedUser['email'];
 
                     header("location: ./admin");
-
                 } else {
                     $_SESSION['isLogin'] = "true";
 
@@ -94,7 +93,7 @@ if (isLoggedIn()) {
                     $_SESSION['name'] = $loggedUser['fullname'];
                     $_SESSION['email'] = $loggedUser['email'];
                     $_SESSION['phone'] = $loggedUser['phone'];
-                    header("location: ./index.php"); 
+                    header("location: ./index.php");
                 }
             } else {
                 $status = "Email or Password is Incorrect";
@@ -104,8 +103,8 @@ if (isLoggedIn()) {
     ?>
 
 
-        <!-- header desktop -->
-        <?php include_once("./navbar.php"); ?>
+    <!-- header desktop -->
+    <?php include_once("./navbar.php"); ?>
 
 
     <!-- main content -->
@@ -173,15 +172,15 @@ if (isLoggedIn()) {
         </div>
     </div>
 
- <!-- footer -->
- <?php include_once("./footer.php") ?>
+    <!-- footer -->
+    <?php include_once("./footer.php") ?>
 
- <!-- back top top -->
- <?php include_once("./backToTopBtn.php") ?>
+    <!-- back top top -->
+    <?php include_once("./backToTopBtn.php") ?>
 
 
- <!-- menu mobie right -->
- <?php include_once("./menuMobileRight.php") ?>
+    <!-- menu mobie right -->
+    <?php include_once("./menuMobileRight.php") ?>
 
     <!-- Vendor JS -->
     <script src="libs/jquery/jquery.min.js"></script>

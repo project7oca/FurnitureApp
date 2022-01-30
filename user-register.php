@@ -196,15 +196,15 @@ if (isLoggedIn()) {
         </div>
     </div>
 
- <!-- footer -->
- <?php include_once("./footer.php") ?>
+    <!-- footer -->
+    <?php include_once("./footer.php") ?>
 
- <!-- back top top -->
- <?php include_once("./backToTopBtn.php") ?>
+    <!-- back top top -->
+    <?php include_once("./backToTopBtn.php") ?>
 
 
- <!-- menu mobie right -->
- <?php include_once("./menuMobileRight.php") ?> 
+    <!-- menu mobie right -->
+    <?php include_once("./menuMobileRight.php") ?>
 
     <!-- Vendor JS -->
     <script src="libs/jquery/jquery.min.js"></script>
