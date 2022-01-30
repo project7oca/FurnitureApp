@@ -3,7 +3,7 @@ session_start();
 
 include('./config/functions.php');
 if (!isLoggedIn()) {
-	header('location: user-login');
+    header('location: user-login');
 }
 ?>
 
@@ -16,6 +16,7 @@ if (!isLoggedIn()) {
 
 
 <!-- user-acount11:10-->
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -101,7 +102,7 @@ if (!isLoggedIn()) {
                             </table>
 
                         </div>
-                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                        <!-- <button class="btn btn-primary" data-link-action="sign-in" type="submit">
                             view Address
                         </button>
                         <div class="order">
@@ -109,22 +110,22 @@ if (!isLoggedIn()) {
                                 <span class="detail">History</span>
                             </h4>
                             <p>You haven't placed any orders yet.</p>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
- <!-- footer -->
- <?php include_once("./footer.php") ?>
+    <!-- footer -->
+    <?php include_once("./footer.php") ?>
 
- <!-- back top top -->
- <?php include_once("./backToTopBtn.php") ?>
+    <!-- back top top -->
+    <?php include_once("./backToTopBtn.php") ?>
 
 
- <!-- menu mobie right -->
- <?php include_once("./menuMobileRight.php") ?> 
+    <!-- menu mobie right -->
+    <?php include_once("./menuMobileRight.php") ?>
 
     <!-- Vendor JS -->
     <script src="libs/jquery/jquery.min.js"></script>
@@ -144,4 +145,5 @@ if (!isLoggedIn()) {
 
 
 <!-- user-acount11:10-->
+
 </html>
