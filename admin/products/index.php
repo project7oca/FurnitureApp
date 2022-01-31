@@ -259,7 +259,7 @@ if (!isAdmin()) {
                             <td><?php echo $row['id']; ?> </td>
                             <td><?php echo $row['product_name']; ?> </td>
                             <td><?php echo $row['product_price']; ?> </td>
-                            <td><?php echo $row['product_desc']; ?> </td>
+                            <td> <p style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 180px;"><?php echo $row['product_desc']; ?> </p> </td>
                             <td><?php echo $row['discount']; ?> </td>
                             <td><img src="<?php echo $row['product_image']; ?>" alt="products"></td>
                             <td><?php echo $row['category_id']; ?> </td>
