@@ -107,8 +107,8 @@ if (!isLoggedIn()) {
                             Edit Profile
                             </button>
                         </a>
-
                     </div>
+                    <h1 class="title-page">Order History</h1>
 
                 </div>
             </div>
