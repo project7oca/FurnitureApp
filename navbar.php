@@ -123,7 +123,7 @@
                <!-- acount  -->
                <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                   <div class="myaccount-title">
-                     <a href="#acount" data-toggle="collapse" class="acount">
+                     <a href="#acount" data-toggle="collapse" class="acount" style="margin: 0 1rem;">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span>Account</span>
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -224,7 +224,7 @@
                               </table>
                            </div>
                         </div> -->
-   
+
                      </div>
                   </div>
                </a>

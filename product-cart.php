@@ -98,8 +98,7 @@ try {
                       <ul class="cart-items">
                         <?php
                         if (isset($_SESSION["cart"])) {
-                          if (count($_SESSION["cart"]) == 0)
-                            echo "<h4>You Don't Have Any Product In Your Cart</h4>";
+
                           foreach ($_SESSION["cart"] as $element) {
                         ?>
                             <li class="cart-item">
@@ -119,14 +118,7 @@ try {
                                   <div class="product-line-info product-price">
                                     <span class="value"><?php echo $element['product_price']; ?> JOD</span>
                                   </div>
-                                  <!-- <div class="product-line-info">
-                <span class="label-atrr">Size:</span>
-                 <span class="value">S</span>
-                 </div> -->
-                                  <!-- <div class="product-line-info">
-                <span class="label-atrr">Color:</span>
-                 <span class="value">Blue</span>
-                 </div> -->
+
                                 </div>
                                 <div class="product-line-grid-right text-center product-line-actions col-md-4">
                                   <div class="row">
@@ -171,15 +163,17 @@ try {
                     </div>
                   </div>
                   <?php
-                  if (count($_SESSION["cart"]) != 0) {
+                  if (isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0) {
+
                   ?>
                     <a href="product-checkout.php" class="continue btn btn-primary pull-xs-right">
                       Continue
                     </a>
                   <?php
                   } else {
+                    echo "<h5>You Don't Have Any Product In Your Cart</h5>";
                   ?>
-                    <a href="product-shop.php" class="continue btn btn-primary pull-xs-right">
+                    <a href="shop.php" class="continue btn btn-primary pull-xs-right">
                       Add Item
                     </a>
                   <?php
@@ -280,7 +274,7 @@ try {
 
   <!-- Page Loader -->
   <?php
-  include_once("./pagePreLoader.php")
+  // include_once("./pagePreLoader.php")
   ?>
 
   <!-- Vendor JS -->

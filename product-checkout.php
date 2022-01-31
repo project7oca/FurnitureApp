@@ -297,7 +297,7 @@ function lastOrder($id)
 
  <!-- Page Loader -->
  <?php
- include_once("./pagePreLoader.php")
+//  include_once("./pagePreLoader.php")
  ?>
 
  <!-- Vendor JS -->
