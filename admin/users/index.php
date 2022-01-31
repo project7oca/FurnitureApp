@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include('../../config/functions.php');
 if (!isLoggedIn()) {
   header('location: ../index.php');
@@ -8,6 +7,12 @@ if (!isLoggedIn()) {
 if (!isAdmin()) {
   header('location: ../index.php');
 }
+
+if (isset($_GET["error"])) {
+  echo "<script>alert('This user has a comment or order');</script>";
+  unset($_GET["error"]);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +46,11 @@ if (!isAdmin()) {
 
   <!-- Main CSS-->
   <link href="../css/theme.css" rel="stylesheet" media="all">
-
+  <style>
+    a {
+      color: black;
+    }
+  </style>
 </head>
 
 <body class="animsition">
@@ -253,24 +262,29 @@ if (!isAdmin()) {
                             <td><?php echo $row['email']; ?> </td>
                             <td><?php echo $row['phone']; ?> </td>
                             <td><?php echo $row['password']; ?> </td>
-                            <td><?php echo $row['userRole']; ?> </td>
+                            <td><?php echo $row['userRole'] == 1 ? "admin" : "user"; ?> </td>
                             <td>
-                              <style>
-                                a {
-                                  color: black;
-                                }
-                              </style>
-                              <form action="delete.php" method="POST">
-                                <input type="hidden" name="edit" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="btn btn-warning"> EDIT</button>
-                              </form>
+                              <?php if ($row['userRole'] != 1) { ?>
+                                <form action="delete.php" method="POST">
+                                  <input type="hidden" name="edit" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-warning"> EDIT</button>
+                                </form>
+                              <?php
+                              }
+                              ?>
                             </td>
                             <td>
-                              <form action="index.php" method="POST">
-                                <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                                <button type="submit" name="delete_btn" class="btn btn-danger">
-                                  <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a></button>
-                              </form>
+                              <?php if ($row['userRole'] != 1) {
+                              ?>
+                                <form action="index.php" method="POST">
+                                  <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" name="delete_btn" class="btn btn-danger">
+                                    <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a></button>
+                                </form>
+                              <?php
+
+                              }
+                              ?>
                             </td>
                           </tr>
                         <?php
