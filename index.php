@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['successMessage'])) {
-  echo "<script> alert('Thank you for ordering from us');</script>";
+  header('Location: order.php');
   unset($_SESSION['successMessage']);
 }
 // var_dump($_SESSION["userData"]);
