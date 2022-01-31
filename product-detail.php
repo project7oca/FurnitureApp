@@ -535,21 +535,6 @@ if (isset($_POST['newUserReview'])) {
                               <div class="product-quantity">
                                 <div class="qty">
                                   <div class="input-group">
-                                    <div class="quantity">
-                                      <span class="control-label">QTY : </span>
-                                      <input type="number" name="qty" id="quantity_wanted" value="1" maxlength="2" min="1" max="<?php
-                                                                                                                                echo (fetchProductData()["stock"]);
-                                                                                                                                ?>" class="input-group form-control">
-
-                                      <!-- <span class="input-group-btn-vertical">
-                    <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                     +
-                    </button>
-                    <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                     -
-                    </button>
-                   </span> -->
-                                    </div>
                                     <span class="add">
                                       <a href="AddToCart.php?id=<?php echo $productId; ?>&&name=addFromDetail"><button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit">
                                           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
