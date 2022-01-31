@@ -618,15 +618,6 @@ try {
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Lorem ipsum dolor</a>
                                   </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
-                                  </div>
                                   <div class="item-price">
                                     £52.00
                                   </div>
@@ -650,15 +641,6 @@ try {
                                 <div class="content-bottom">
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
                                   </div>
                                   <div class="item-price">
                                     £68.00
@@ -695,15 +677,6 @@ try {
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Lorem ipsum dolor sit</a>
                                   </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
-                                  </div>
                                   <div class="item-price">
                                     £45.00
                                   </div>
@@ -728,15 +701,6 @@ try {
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Lorem ipsum dolor</a>
                                   </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
-                                  </div>
                                   <div class="item-price">
                                     £21.00
                                   </div>
@@ -760,15 +724,6 @@ try {
                                 <div class="content-bottom">
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
                                   </div>
                                   <div class="item-price">
                                     £11.90
@@ -805,15 +760,6 @@ try {
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Sed vel malesuada lorem</a>
                                   </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
-                                  </div>
                                   <div class="item-price">
                                     £11.90
                                   </div>
@@ -838,15 +784,6 @@ try {
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Orci varius natoque penatibus</a>
                                   </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
-                                  </div>
                                   <div class="item-price">
                                     £9.00
                                   </div>
@@ -870,15 +807,6 @@ try {
                                 <div class="content-bottom">
                                   <div class="item-title">
                                     <a href="product-detail.php?id=500">Etiam congue nisl nec</a>
-                                  </div>
-                                  <div class="rating">
-                                    <div class="star-content">
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                      <div class="star"></div>
-                                    </div>
                                   </div>
                                   <div class="item-price">
                                     £16.00
@@ -930,15 +858,6 @@ try {
                               <div class="product-groups">
                                 <div class="product-title">
                                   <a href="product-detail.php?id=500"><?php echo $element['product_name'] ?></a>
-                                </div>
-                                <div class="rating">
-                                  <div class="star-content">
-                                    <div class="star"></div>
-                                    <div class="star"></div>
-                                    <div class="star"></div>
-                                    <div class="star"></div>
-                                    <div class="star"></div>
-                                  </div>
                                 </div>
                                 <div class="product-group-price">
                                   <div class="product-price-and-shipping">

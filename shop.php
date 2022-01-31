@@ -240,15 +240,7 @@ try {
                   <div class="product-title">
                    <a href="product-detail.php?id=<?php echo $element['id']; ?>"><?php echo $element['product_name']; ?></a>
                   </div>
-                  <div class="rating">
-                   <div class="star-content">
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                   </div>
-                  </div>
+                  
                   <div class="product-group-price">
                    <div class="product-price-and-shipping">
                     <span class="price">jd<?php echo $element['product_price']; ?></span>
@@ -310,15 +302,6 @@ try {
                                                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
                                                                                     In Stock
                                                                                 </span> -->
-                    </div>
-                    <div class="rating">
-                     <div class="star-content">
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
-                      <div class="star"></div>
-                     </div>
                     </div>
                     <div class="product-group-price">
                      <div class="product-price-and-shipping">
