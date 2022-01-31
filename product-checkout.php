@@ -75,6 +75,7 @@ function lastOrder($id)
    $conn->exec($sql);
    $conn->exec($stmt);
   }
+  $_SESSION['OrderHistory'] = $_SESSION['cart'];
   unset($_SESSION['cart']);
   $_SESSION["successMessage"] = "hoooray";
   header("location:./index.php");

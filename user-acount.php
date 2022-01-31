@@ -115,9 +115,10 @@ if (!isLoggedIn()) {
 
                             
                     <?php
-                        if (isset($_SESSION["cart"])) {
+                    
+                        if (isset($_SESSION["OrderHistory"])) {
 
-                          foreach ($_SESSION["cart"] as $element) {
+                          foreach ($_SESSION["OrderHistory"] as $element) {
                         ?>
                         <div class="col-2">
 
