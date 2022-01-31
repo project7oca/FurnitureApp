@@ -116,7 +116,7 @@ if (!isAdmin()) {
 
 
         <!-- Edit from here -->
-        <h3 class="ml-3">Edit products</h3>
+        <h3 class="ml-3">Edit Products</h3>
         <!-- Replace -->
         <!-- USER DATA-->
         <?php
@@ -133,7 +133,7 @@ if (!isAdmin()) {
             <div class="card shadow mb-4 mt-5" style="max-width: 80%; display: block; margin: 0 auto;">
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary"> EDIT Admin Profile </h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Edit Products</h6>
                 </div>
                 <div class="card-body">
                   <form action="update.php" method='post'>

@@ -218,9 +218,13 @@ if (!isAdmin()) {
         <div class="section__content section__content--p30">
           <div class="container-fluid">
             <div class="table-data__tool-right">
-              <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                <a href="create.php">add item</a>
-                <i class="zmdi zmdi-plus"> </i></button>
+              <a href="create.php">
+                  <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                  Add item
+                  <i class="zmdi zmdi-plus"> </i>
+                    </button>
+
+                </a>
               <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                 <div class="dropDownSelect2"></div>
               </div>

@@ -117,7 +117,7 @@ if (!isAdmin()) {
 
 
                 <!-- Edit from here -->
-                <h3 class="ml-3">Edit Category</h3>
+                <h3 class="ml-3">Add Category</h3>
                 <!-- Replace -->
 
 
@@ -125,7 +125,7 @@ if (!isAdmin()) {
                 <div class="card shadow mb-4 mt-5" style="max-width: 55%; display: block; margin: 0 auto;">
 
                     <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary"> EDIT Admin Profile </h6>
+                        <h6 class="m-0 font-weight-bold text-primary"> Add Category </h6>
                     </div>
                     <div class="col-lg-13">
                         <div class="card">

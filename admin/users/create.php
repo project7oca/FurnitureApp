@@ -100,13 +100,13 @@ if (!isAdmin()) {
 
 
                 <!-- Edit from here -->
-                <h3 class="ml-3">Edit user</h3>
+                <h3 class="ml-3">Add User</h3>
                 <!-- Replace -->
                 <!-- USER DATA-->
                 <div class="card shadow mb-4 mt-5" style="max-width: 80%; display: block; margin: 0 auto;">
                     <div class="user-data m-b-30">
                         <div class="card">
-                            <div class="card-header">Example Form</div>
+                            <div class="card-header">Add User</div>
                             <div class="card-body card-block">
                                 <form action="" method="post" class="">
                                     <div class="form-group">

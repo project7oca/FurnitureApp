@@ -116,7 +116,7 @@ if (!isAdmin()) {
 
 
                 <!-- Edit from here -->
-                <h3 class="ml-3">Edit products</h3>
+                <h3 class="ml-3">Add Products</h3>
                 <!-- Replace -->
                 <!-- USER DATA-->
                 <div class="card shadow mb-4 mt-5" style="max-width: 80%; display: block; margin: 0 auto;">

@@ -130,7 +130,7 @@ if (!isAdmin()) {
             <!-- DataTales Example -->
             <div class="card shadow mb-4 mt-5" style="max-width: 80%; display: block; margin: 0 auto;">
               <div class="card-header">
-                <h6 class="m-0 font-weight-bold text-primary"> EDIT Admin Profile </h6>
+                <h6 class="m-0 font-weight-bold text-primary"> Edit Category </h6>
               </div>
               <div class="card-body">
                 <form action="update.php" method='post'>
