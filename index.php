@@ -601,7 +601,7 @@ try {
                         <div class="tiva-content-lookbook">
                           <img class="img-fluid img-responsive" src="img/home/home1-tolltip1.jpg" alt="lookbook">
 
-                          <div class="item-lookbook item1">
+                          <!-- <div class="item-lookbook item1">
                             <span class="number-lookbook">+</span>
                             <div class="content-lookbook lookbook-custom">
                               <div class="main-lookbook d-flex align-items-center">
@@ -647,7 +647,7 @@ try {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -660,7 +660,7 @@ try {
                         <div class="tiva-content-lookbook">
                           <img class="img-fluid img-responsive" src="img/home/home1-tolltip2.jpg" alt="lookbook">
 
-                          <div class="item-lookbook item3">
+                          <!-- <div class="item-lookbook item3">
                             <span class="number-lookbook">+</span>
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
@@ -730,7 +730,7 @@ try {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -743,7 +743,7 @@ try {
                         <div class="tiva-content-lookbook">
                           <img class="img-fluid img-responsive" src="img/home/home1-tolltip3.jpg" alt="lookbook">
 
-                          <div class="item-lookbook item6">
+                          <!-- <div class="item-lookbook item6">
                             <span class="number-lookbook">+</span>
                             <div class="content-lookbook">
                               <div class="main-lookbook d-flex align-items-center">
@@ -813,7 +813,7 @@ try {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
 
                         <div class="info-lookbook">
@@ -843,7 +843,7 @@ try {
                         <div class="item text-center">
                           <div class="product-miniature js-product-miniature item-one first-item">
                             <div class="thumbnail-container">
-                              <a href="product-detail.php?id=500">
+                              <a href="product-detail.php?id=<?php echo $element['id'] ?>">
                                 <!-- image-cover -->
                                 <img class="img-fluid " src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt="img">
                               </a>
@@ -852,7 +852,7 @@ try {
                             <div class="product-description">
                               <div class="product-groups">
                                 <div class="product-title">
-                                  <a href="product-detail.php?id=500"><?php echo $element['product_name'] ?></a>
+                                  <a href="product-detail.php?id=<?php echo $element['id'] ?>"><?php echo $element['product_name'] ?></a>
                                 </div>
                                 <div class="product-group-price">
                                   <div class="product-price-and-shipping">
