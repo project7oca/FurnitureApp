@@ -29,9 +29,9 @@ try {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Furnitica - Minimalist Furniture HTML Template</title>
 
-  <meta name="keywords" content="Furniture, Decor, Interior">
-  <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
-  <meta name="author" content="tivatheme">
+  <meta name="keywords" content="Furniture, Decor, Interior, sofa , table, desc">
+  <meta name="description" content="Furnitica - An e-commerce Website that sells furniture, Each product has name, price and description.client can register and login to set orders ,review the products, and can see the orders history from his profile page">
+  <meta name="author" content="Furnitica Team">
 
   <!-- Mobile Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -55,7 +55,7 @@ try {
 </head>
 
 <body id="home2">
-  <?php include_once("./navbar.php"); ?>
+  <?php include_once "./navbar.php"; ?>
 
 
   <!-- main content -->
@@ -941,23 +941,23 @@ try {
   </div>
 
   <!-- footer -->
-  <?php include_once("./footer.php"); ?>
+  <?php include_once "./footer.php"; ?>
 
 
   <!-- back top top -->
-  <?php include_once("./backToTopBtn.php"); ?>
+  <?php include_once "./backToTopBtn.php"; ?>
 
 
   <!-- menu mobie left -->
 
 
   <!-- menu mobie right -->
-  <?php include_once("./menuMobileRight.php") ?>
+  <?php include_once "./menuMobileRight.php" ?>
 
 
   <!-- Page Loader -->
   <?php
-  include_once("./pagePreLoader.php")
+  include_once "./pagePreLoader.php"
   ?>
 
 
