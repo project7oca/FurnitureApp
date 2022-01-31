@@ -5,7 +5,7 @@ if (!isset($_GET['id'])) {
  exit();
 }
 $productId = $_GET['id'];
-$currentUserId = $_SESSION["userData"]["id"];
+$currentUserId = isset($_SESSION["userData"])? $_SESSION["userData"]["id"]:0;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -502,7 +502,7 @@ if (isset($_POST['newUserReview'])) {
                </div>
               </div>
               <?php
-              if (!$userHasReviewed) { //!$userHasReviewed
+              if (!$userHasReviewed&&isset($_SESSION["userData"])) { //!$userHasReviewed
               ?>
 
                <form method="post" action="product-detail.php?id=<?= $productId ?>" class="new-review-form">
