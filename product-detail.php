@@ -5,7 +5,7 @@ if (!isset($_GET['id'])) {
  exit();
 }
 $productId = $_GET['id'];
-$currentUserId = 1;
+$currentUserId = $_SESSION["userData"]["id"];
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -503,7 +503,7 @@ if (isset($_POST['newUserReview'])) {
               if (!$userHasReviewed) { //!$userHasReviewed
               ?>
 
-               <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="new-review-form">
+               <form method="post" action="product-detail.php?id=<?= $productId ?>" class="new-review-form">
                 <input type="hidden" name="review[rating]" value="3">
                 <input type="hidden" name="product_id">
                 <h3 class="spr-form-title">Write a review</h3>
