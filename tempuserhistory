@@ -1,0 +1,50 @@
+<div class="container">
+                    <h1 class="title-page">Order History</h1>   
+                    <div class="row">
+
+                            
+                    <?php
+                    
+                        if (isset($_SESSION["OrderHistory"])) {
+
+                          foreach ($_SESSION["OrderHistory"] as $element) {
+                        ?>
+                        <div class="col-2">
+
+                        <li class="cart-item">
+                              <div class="product-line-grid">
+                                <!--  product left content: image-->
+                                <div class="product-line-grid-left">
+                                    
+                                  <span class="product-image media-middle">
+                                    <a href="product-detail.html">
+                                      <img class="img-fluid border p-1 rounded" width="150" src='<?php echo $element['product_image']; ?>' alt='<?php echo $element['product_name']; ?>'>
+                                    </a>
+                                  </span>
+
+                                  <div class="product-line-info text-left mt-1">
+                                      Name:
+                                    <a class="label text-center" href="product-detail.html" data-id_customization="0">
+                                        <?php echo $element['product_name']; ?>
+                                    </a>
+                                  </div>
+                                  <div class="product-line-info product-price text-left">
+                                      Price:
+                                    <span class="value text-center">
+                                        <?php echo $element['product_price']; ?> JOD
+                                    </span>
+                                  </div>
+                                  <div class="label text-left mb-5">Quantity: <?php echo $element['quantity']; ?></div>
+
+                                </div>
+                              </div>
+                            </li>
+
+                        </div>
+
+                            
+                        <?php }
+                        } ?>
+
+                    </div>
+                </div>
