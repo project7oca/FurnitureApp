@@ -4,10 +4,6 @@ if (isset($_SESSION['successMessage'])) {
   header('Location: order.php');
   unset($_SESSION['successMessage']);
 }
-// var_dump($_SESSION["userData"]);
-// var_dump($_SESSION["isLogin"]);
-
-// echo(count($_SESSION["cart"]));
 $servername = "localhost";
 $username = "root";
 $dbname = "project7";
@@ -849,8 +845,7 @@ try {
                             <div class="thumbnail-container">
                               <a href="product-detail.php?id=500">
                                 <!-- image-cover -->
-                                <img class="img-fluid " src="img/product/<?php echo $element['product_image'] ?>" alt="img">
-                                <!-- <img class="img-fluid image-secondary" src="img/product/24.jpg" alt="img"> -->
+                                <img class="img-fluid " src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt="img">
                               </a>
                               <div class="product-flags discount">-<?php echo $element['discount'] ?>%</div>
                             </div>

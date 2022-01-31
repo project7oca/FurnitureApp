@@ -2,7 +2,7 @@
 session_start();
 include('./config/functions.php');
 if (!isLoggedIn()) {
-  header('location: index.php');
+  header('location: user-login.php');
 }
 $servername = "localhost";
 $username = "root";
@@ -26,7 +26,7 @@ if (isset($_SESSION["cart"])) {
   if (
     $_SERVER["REQUEST_METHOD"] == "POST"
   ) {
-    $lastIdStmt = $conn->prepare("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
+    $lastIdStmt = $conn->prepare("SELECT * FROM orders ORDER BY id DESC LIMIT 1");
     $lastIdStmt->execute();
     $lastId = $lastIdStmt->fetch()["id"];
     lastOrder($lastId + 1);

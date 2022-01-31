@@ -3,7 +3,7 @@ session_start();
 
 include('../../config/functions.php');
 if (!isLoggedIn()) {
-    header('location: ../index.php');
+  header('location: ../index.php');
 }
 if (!isAdmin()) {
   header('location: ../index.php');
@@ -210,7 +210,7 @@ if (!isAdmin()) {
     <div class="page-container">
 
       <!-- HEADER DESKTOP-->
-      <?php include_once("../adminNav.php")?>
+      <?php include_once("../adminNav.php") ?>
       <!-- END HEADER DESKTOP-->
 
       <!-- MAIN CONTENT-->
@@ -219,12 +219,12 @@ if (!isAdmin()) {
           <div class="container-fluid">
             <div class="table-data__tool-right">
               <a href="create.php">
-                  <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                   Add item
                   <i class="zmdi zmdi-plus"> </i>
-                    </button>
+                </button>
 
-                </a>
+              </a>
               <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                 <div class="dropDownSelect2"></div>
               </div>
@@ -263,9 +263,11 @@ if (!isAdmin()) {
                             <td><?php echo $row['id']; ?> </td>
                             <td><?php echo $row['product_name']; ?> </td>
                             <td><?php echo $row['product_price']; ?> </td>
-                            <td> <p style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 180px;"><?php echo $row['product_desc']; ?> </p> </td>
+                            <td>
+                              <p style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 180px;"><?php echo $row['product_desc']; ?> </p>
+                            </td>
                             <td><?php echo $row['discount']; ?> </td>
-                            <td><img src="<?php echo $row['product_image']; ?>" alt="products"></td>
+                            <td><img src="../../img/furniture-photos/all-products/<?php echo $row['product_image']; ?>" alt="products"></td>
                             <td><?php echo $row['category_id']; ?> </td>
                             <td><?php echo $row['stock']; ?> </td>
                             <td>

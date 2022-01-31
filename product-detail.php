@@ -190,7 +190,7 @@ if (isset($_POST['newUserReview'])) {
                <div class="product-miniature item-one first-item d-flex">
                 <div class="thumbnail-container border">
                  <a href="product-detail.php?id=<?php echo $element['id'] ?>">
-                  <img class="img-fluid" src="img/product/<?php echo $element['product_image'] ?>" alt="img">
+                  <img class="img-fluid" src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt="img">
                  </a>
                 </div>
                 <div class="product-description">
@@ -230,7 +230,8 @@ if (isset($_POST['newUserReview'])) {
               <div class="images-container">
                <div class="js-qv-mask mask tab-content border">
                 <div id="item1" class="tab-pane fade active in show">
-                 <img src="img/product/<?php
+                
+                 <img src="img/furniture-photos/all-products/<?php
                                        echo (fetchProductData()["product_image"]);
                                        ?>" alt="img">
                 </div>
@@ -281,7 +282,8 @@ if (isset($_POST['newUserReview'])) {
                       <div class="images-container">
                        <div class="js-qv-mask mask tab-content">
                         <div id="modal-item1" class="tab-pane fade active in show">
-                         <img src="img/product/<?php
+                        
+                         <img src="img/furniture-photos/all-products/<?php
                                                echo (fetchProductData()["product_image"]);
                                                ?>" alt="img">
                         </div>

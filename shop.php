@@ -224,7 +224,8 @@ try {
                <div class="product-miniature js-product-miniature item-one first-item">
                 <div class="thumbnail-container border">
                  <a href="product-detail.php?id=<?php echo $element['id']; ?>">
-                  <img class="img-fluid" src=<?php echo $element['product_image']; ?> alt="img">
+                 
+                  <img class="img-fluid" src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt="img">
                   <!-- <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img"> -->
                  </a>
                  <!-- <div class="highlighted-informations"> -->
@@ -288,7 +289,8 @@ try {
                  <div class="col-md-4">
                   <div class="thumbnail-container border">
                    <a href="product-detail.php?id=<?php echo $element['id']; ?>">
-                    <img class="img-fluid" src=<?php echo $element['product_image']; ?> alt="img">
+                   
+                    <img class="img-fluid" src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt="img">
                     <!-- <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img"> -->
                    </a>
                   </div>

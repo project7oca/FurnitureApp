@@ -1,7 +1,5 @@
 <?php
 session_start();
-// unset($_SESSION['add']);
-// echo "<h1>".var_dump($_SESSION['add'])."</h1>";
 
 $servername = "localhost";
 $username = "root";

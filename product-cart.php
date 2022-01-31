@@ -107,7 +107,7 @@ try {
                                 <div class="product-line-grid-left col-md-2">
                                   <span class="product-image media-middle">
                                     <a href="product-detail.html">
-                                      <img class="img-fluid" src='<?php echo $element['product_image']; ?>' alt='<?php echo $element['product_name']; ?>'>
+                                      <img class="img-fluid" src="img/furniture-photos/all-products/<?php echo $element['product_image'] ?>" alt='<?php echo $element['product_name']; ?>'>
                                     </a>
                                   </span>
                                 </div>
