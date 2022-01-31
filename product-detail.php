@@ -114,6 +114,11 @@ if (isset($_POST['newUserReview'])) {
   <!-- Template CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body id="product-detail">
@@ -518,15 +523,32 @@ if (isset($_POST['newUserReview'])) {
                               <span class="price"><?php
                                                   echo (fetchProductData()["product_price"]);
                                                   ?>Jd</span>
-                              <span class="float-right">
-                                <span class="availb">Availability: </span>
-                                <span class="check">
-                                  <!-- <i class="fa fa-check-square-o" aria-hidden="true"></i> -->
-                                  <?php
-                                  echo (fetchProductData()["stock"]);
-                                  ?>
+                              <?php
+                              if (fetchProductData()["stock"] ==0) {
+                              ?>
+                                <span class="float-right price">
+                                  <span class="availb" style="color: black;">Availability: </span>
+                                  <span >
+                                    <!-- <i class="fa fa-check-square-o" aria-hidden="true"></i> -->
+                                    Out Of Stock
+                                  </span>
                                 </span>
-                              </span>
+                              <?php
+                              } else {
+                              ?>
+                                <span class="float-right ">
+                                  <span class="availb">Availability: </span>
+                                  <span class="check ">
+                                    <!-- <i class="fa fa-check-square-o" aria-hidden="true"></i> -->
+                                    <?php
+                                    echo (fetchProductData()["stock"]);
+                                    ?>
+                                  </span>
+                                </span>
+                              <?php
+                              }
+                              ?>
+
                             </div>
                             <p class="description"><?php
                                                     echo (fetchProductData()["product_desc"]);
