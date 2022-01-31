@@ -9,6 +9,28 @@ if (!isAdmin()) {
     header('location: ../index.php');
 }
 ?>
+                    <?php
+                    $servername = "localhost";
+                    $dbname = "project7";
+                    $nameSql = "root";
+                    $passSql = "";
+                    // $conn = mysqli_connect($server, $username, $password, $dbname) ;
+                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $nameSql, $passSql);
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    if (isset($_POST['category_name'])) {
+                        if (!empty($_POST['category_name'])) {
+
+                            $category_name = $_POST['category_name'];
+
+                            $query = "INSERT INTO categories(`category_name`) VALUES ('$category_name')";
+                            $conn->exec($query);
+
+                            echo 'good';
+                            header("Location: index.php");
+                        }
+                    }
+                    //   echo  '<button><a href="index.php">back</button>';
+                    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,28 +149,7 @@ if (!isAdmin()) {
                             </div>
                         </div>
                     </div>
-                    <?php
-                    $servername = "localhost";
-                    $dbname = "project7";
-                    $nameSql = "root";
-                    $passSql = "";
-                    // $conn = mysqli_connect($server, $username, $password, $dbname) ;
-                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $nameSql, $passSql);
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    if (isset($_POST['category_name'])) {
-                        if (!empty($_POST['category_name'])) {
 
-                            $category_name = $_POST['category_name'];
-
-                            $query = "INSERT INTO categories(`category_name`) VALUES ('$category_name')";
-                            $conn->exec($query);
-
-                            echo 'good';
-                            header("Location: index.php");
-                        }
-                    }
-                    //   echo  '<button><a href="index.php">back</button>';
-                    ?>
 
                     <!-- Jquery JS-->
                     <script src="../vendor/jquery-3.2.1.min.js"></script>

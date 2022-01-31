@@ -174,13 +174,13 @@ function lastOrder($id)
               <div>
                <input type="hidden" name="id_customer" value="">
                <div class="form-group row">
-                <input class="form-control" name="fullname" type="text" placeholder="Full name" value='<?php echo (isset($row['fullname']) ? $row['fullname'] : ''); ?>' disabled>
+                <input class="form-control" name="fullname" type="text" placeholder="Full name" value='<?php echo $_SESSION['userData']['fullname'] ?>' disabled>
                </div>
                <div class="form-group row">
-                <input class="form-control" name="email" type="email" placeholder="Email" value='<?php echo (isset($row['email']) ? $row['email'] : ''); ?>' disabled>
+                <input class="form-control" name="email" type="email" placeholder="Email" value='<?php echo $_SESSION['userData']['email']  ?>' disabled>
                </div>
                <div class="form-group row">
-                <input class="form-control" name="phone" type="tel" placeholder="Phone" value='<?php echo (isset($row['phone']) ? $row['phone'] : ''); ?>' disabled>
+                <input class="form-control" name="phone" type="tel" placeholder="Phone" value='<?php echo $_SESSION['userData']['phone'] ?>' disabled>
                </div>
 
                <div class="form-group row">
