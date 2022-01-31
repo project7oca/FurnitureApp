@@ -214,7 +214,7 @@ try {
              } else {
               $data = $conn->prepare("SELECT * FROM products");
              }
-             if (isset($_GET["id"]) && $_GET["id"] == 3) {
+             if (isset($_GET["id"]) && $_GET["id"] == 1) {
               $data = $conn->prepare("SELECT * FROM products");
              }
              $data->execute();

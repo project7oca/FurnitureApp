@@ -894,35 +894,35 @@ try {
               <div class="row">
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="./shop.php">
+                    <a href="./shop.php?id=6">
                       <img class="img-fluid width-100" src="img/home/effect5.jpg" alt="banner-1" title="banner-1">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="./shop.php">
+                    <a href="./shop.php?id=6">
                       <img class="img-fluid width-100" src="img/home/effect6.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 banner1">
                   <div class="effect">
-                    <a href="./shop.php">
+                    <a href="./shop.php?id=3">
                       <img class="img-fluid width-100" src="img/home/effect7.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 banner1">
                   <div class="effect">
-                    <a href="./shop.php">
+                    <a href="./shop.php?id=5">
                       <img class="img-fluid width-100" src="img/home/effect8.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
                 </div>
                 <div class="col-lg-6 col-md-6 banner1">
                   <div class="effect">
-                    <a href="./shop.php">
+                    <a href="./shop.php?id=4">
                       <img class="img-fluid width-100" src="img/home/effect9.jpg" alt="banner-2" title="banner-2">
                     </a>
                   </div>
