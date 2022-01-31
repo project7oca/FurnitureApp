@@ -194,13 +194,6 @@ function lastOrder($id)
                  <label class="label-absolute" for="cash">Cash On Delivery</label>
                 </span>
                </div>
-               <div class="form-group row check-input">
-                <span class="custom-checkbox d-inline-flex">
-                 <input id="paypal" class="check" name="optin" type="radio" value="1">
-                 <label class="label-absolute" for="paypal">Paybal</label>
-                </span>
-               </div>
-
 
               </div>
               <div class="clearfix">
