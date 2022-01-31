@@ -79,6 +79,10 @@ if (isLoggedIn()) {
 
                     $_SESSION['userRole'] = true;
                     $_SESSION['isLogin'] = "true";
+
+                    $_SESSION['userData'] = $loggedUser;
+
+
                     $_SESSION['name'] = $loggedUser['fullname'];
                     $_SESSION['email'] = $loggedUser['email'];
                     $_SESSION['phone'] = $loggedUser['phone'];

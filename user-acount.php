@@ -60,24 +60,24 @@ if (!isLoggedIn()) {
         <div class="wrap-banner">
 
             <!-- breadcrumb -->
-            <!-- <nav class="breadcrumb-bg">
+            <nav class="breadcrumb-bg">
                 <div class="container no-index">
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="#">
+                                <a href=".">
                                     <span>Home</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="user-acount.php">
                                     <span>My Account</span>
                                 </a>
                             </li>
                         </ol>
                     </div>
                 </div>
-            </nav> -->
+            </nav>
 
             <div class="acount head-acount">
                 <div class="container">
@@ -88,29 +88,26 @@ if (!isLoggedIn()) {
                                 <tbody>
                                     <tr>
                                         <th class="first_item">My Name :</th>
-                                        <td><?php echo $_SESSION['name'] ?></td>
+                                        <td><?php echo $_SESSION['userData']['fullname'] ?></td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Email :</th>
-                                        <td><?php echo $_SESSION['email'] ?></td>
+                                        <td><?php echo $_SESSION['userData']['email']  ?></td>
                                     </tr>
                                     <tr>
                                         <th class="first_item">Phone :</th>
-                                        <td><?php echo $_SESSION['phone'] ?></td>
+                                        <td><?php echo $_SESSION['userData']['phone']  ?></td>
                                     </tr>
                                 </tbody>
                             </table>
 
                         </div>
-                        <!-- <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                            view Address
-                        </button>
-                        <div class="order">
-                            <h4>Order
-                                <span class="detail">History</span>
-                            </h4>
-                            <p>You haven't placed any orders yet.</p>
-                        </div> -->
+                        <a href="edit-profile.php" class="text-light">
+                            <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                            Edit Profile
+                            </button>
+                        </a>
+
                     </div>
 
                 </div>

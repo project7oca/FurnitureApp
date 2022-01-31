@@ -113,24 +113,24 @@ if (isLoggedIn()) {
         <div class="wrap-banner">
 
             <!-- breadcrumb -->
-            <!-- <nav class="breadcrumb-bg">
+            <nav class="breadcrumb-bg">
                 <div class="container no-index">
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="#">
+                                <a href=".">
                                     <span>Home</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <span>About us</span>
+                                <a href="user-register.php">
+                                    <span>Sign up</span>
                                 </a>
                             </li>
                         </ol>
                     </div>
                 </div>
-            </nav> -->
+            </nav>
         </div>
 
         <!-- main -->
