@@ -3,10 +3,22 @@ session_start();
 
 include('../../config/functions.php');
 if (!isLoggedIn()) {
-    header('location: ../index.php');
+  header('location: ../index.php');
 }
 if (!isAdmin()) {
   header('location: ../index.php');
+}
+function getNameFromId($selectedField, $tableName, $whereValue)
+{
+  $connection = mysqli_connect("localhost", "root", "", "project7");
+  $query = "SELECT $selectedField FROM $tableName WHERE id='$whereValue'";
+  $query_run = mysqli_query($connection, $query);
+  if (mysqli_num_rows($query_run) > 0) {
+    return mysqli_fetch_assoc($query_run)["$selectedField"];
+  } else {
+    return "name";
+  }
+  //  echo getNameFromId("fullname", "users", $row['user_id']); 
 }
 ?>
 <!DOCTYPE html>
@@ -107,7 +119,7 @@ if (!isAdmin()) {
 
     <!-- PAGE CONTAINER-->
     <div class="page-container">
-    <?php include_once("../adminNav.php")?>
+      <?php include_once("../adminNav.php") ?>
 
 
       <!-- MAIN CONTENT-->
@@ -129,8 +141,8 @@ if (!isAdmin()) {
                       <tr>
                         <th> ID </th>
                         <th> comment_desc </th>
-                        <th> user_id </th>
-                        <th> product_id </th>
+                        <th> user </th>
+                        <th> product </th>
                         <th> date </th>
                         <th> stars </th>
                         <th>DELETE </th>
@@ -145,8 +157,8 @@ if (!isAdmin()) {
                         <tr>
                           <td><?php echo $row['id']; ?> </td>
                           <td><?php echo $row['comment_desc']; ?> </td>
-                          <td><?php echo $row['user_id']; ?> </td>
-                          <td><?php echo $row['product_id']; ?> </td>
+                          <td><?php echo getNameFromId("fullname", "users", $row['user_id']); ?> </td>
+                          <td><?php echo getNameFromId("product_name", "products", $row['product_id']); ?> </td>
                           <td><?php echo $row['date']; ?> </td>
                           <td><?php echo $row['stars']; ?> </td>
                           <td>
