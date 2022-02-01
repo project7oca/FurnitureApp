@@ -112,7 +112,7 @@ if (!isAdmin()) {
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">Full name:</div>
-                                            <input type="text" id="fullname" name="fullname" class="form-control">
+                                            <input type="text" id="fullname" name="fullname" class="form-control" required>
                                             <div>
 
                                             </div>
@@ -121,7 +121,7 @@ if (!isAdmin()) {
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">Email:</div>
-                                            <input type="email" id="email" name="email" class="form-control">
+                                            <input type="email" id="email" name="email" class="form-control" required>
                                             <div>
 
                                             </div>
@@ -130,7 +130,7 @@ if (!isAdmin()) {
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">Phone:</div>
-                                            <input type="tel" id="phone" name="phone" class="form-control">
+                                            <input type="tel" id="phone" name="phone" class="form-control" required>
                                             <div>
                                             </div>
                                         </div>
@@ -139,14 +139,17 @@ if (!isAdmin()) {
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon">Password:</div>
-                                            <input type="password" id="password" name="password" class="form-control">
+                                            <input type="password" id="password" name="password" class="form-control" required>
                                             <div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">userRole:</div>
-                                        <input type="number" id="userRole" name="userRole" class="form-control">
+                                        <select name="userRole" id="userRole" class="form-control" required>
+                                            <option value="0">User</option>
+                                            <option value="1">Admin</option>
+                                        </select>
                                         <div>
                                         </div>
                                     </div>
@@ -174,8 +177,9 @@ if (!isAdmin()) {
                         $email = $_POST['email'];
                         $phone = $_POST['phone'];
                         $password = $_POST['password'];
+                        $encryptedPassword = md5($password);
                         $userRole = $_POST['userRole'];
-                        $query = "INSERT INTO users(`fullname`,`email`,`phone`,`password`,`userRole`) VALUES ('$fullname','$email','$phone','$password', $userRole)";
+                        $query = "INSERT INTO users(`fullname`,`email`,`phone`,`password`,`userRole`) VALUES ('$fullname','$email','$phone','$encryptedPassword', $userRole)";
                         $conn->exec($query);
 
                         echo 'good';

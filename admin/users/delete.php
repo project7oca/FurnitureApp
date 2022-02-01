@@ -135,12 +135,11 @@ if (!isAdmin()) {
                         <input type="text" name="phone-edit" class="form-control" value=<?php echo $row['phone'] ?> placeholder="phone" required>
                       </div>
                       <div class="form-group">
-                        <label> password </label>
-                        <input type="text" name="password-edit" class="form-control" value=<?php echo $row['password'] ?> placeholder="password" required>
-                      </div>
-                      <div class="form-group">
                         <label> userRole </label>
-                        <input type="text" name="userRole-edit" class="form-control" value=<?php echo $row['userRole'] ?> placeholder="description" required>
+                        <select name="userRole-edit" id="userRole-edit" class="form-control" required>
+                          <option value="0">User</option>
+                          <option value="1">Admin</option>
+                        </select>
                       </div>
 
                       <button><a href="index.php" class="btn btn-danger"> CANCEL </a></button>
