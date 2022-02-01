@@ -244,7 +244,6 @@ if (isset($_GET["error"])) {
                           <th> full name </th>
                           <th> email </th>
                           <th> phone </th>
-                          <th> password </th>
                           <th> userRole </th>
                           <th>EDIT </th>
                           <th>DELETE </th>
@@ -261,7 +260,6 @@ if (isset($_GET["error"])) {
                             <td><?php echo $row['fullname']; ?> </td>
                             <td><?php echo $row['email']; ?> </td>
                             <td><?php echo $row['phone']; ?> </td>
-                            <td><?php echo $row['password']; ?> </td>
                             <td><?php echo $row['userRole'] == 1 ? "admin" : "user"; ?> </td>
                             <td>
                               <?php if ($row['userRole'] != 1) { ?>
