@@ -8,6 +8,10 @@ if (!isLoggedIn()) {
 if (!isAdmin()) {
   header('location: ../index.php');
 }
+if (isset($_GET["error"])) {
+  echo "<script>alert('This category has a products');</script>";
+  unset($_GET["error"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
