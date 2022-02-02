@@ -139,7 +139,7 @@ function getNameFromId($selectedField, $tableName, $whereValue)
                   <table class="table table-borderless table-data3">
                     <thead>
                       <tr>
-                        <th> ID </th>
+                        <th> No. </th>
                         <th> comment_desc </th>
                         <th> user </th>
                         <th> product </th>
@@ -150,12 +150,14 @@ function getNameFromId($selectedField, $tableName, $whereValue)
                     </thead>
                     <tbody>
                       <?php
+                      $counter = 1;
 
                       if (mysqli_num_rows($query_run) > 0)
                         while ($row = mysqli_fetch_assoc($query_run)) {
                       ?>
                         <tr>
-                          <td><?php echo $row['id']; ?> </td>
+                          <td><?php echo $counter;
+                              $counter++ ?> </td>
                           <td><?php echo $row['comment_desc']; ?> </td>
                           <td><?php echo getNameFromId("fullname", "users", $row['user_id']); ?> </td>
                           <td><?php echo getNameFromId("product_name", "products", $row['product_id']); ?> </td>
@@ -202,7 +204,8 @@ function getNameFromId($selectedField, $tableName, $whereValue)
             <div class="row">
               <div class="col-md-12">
                 <div class="copyright">
-                  <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                  <p>Copyright © 2021 Furnitica. All rights reserved.</p>
+
                 </div>
               </div>
             </div>

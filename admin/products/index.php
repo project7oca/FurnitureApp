@@ -256,7 +256,7 @@ function getNameFromId($selectedField, $tableName, $whereValue)
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
-                          <th> ID </th>
+                          <th> No. </th>
                           <th> product_name </th>
                           <th> product_price </th>
                           <th> product_desc </th>
@@ -271,12 +271,13 @@ function getNameFromId($selectedField, $tableName, $whereValue)
 
                       <tbody>
                         <?php
-
+                        $counter = 1;
                         if (mysqli_num_rows($query_run) > 0)
                           while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
                           <tr>
-                            <td><?php echo $row['id']; ?> </td>
+                            <td><?php echo $counter;
+                                $counter++ ?> </td>
                             <td><?php echo $row['product_name']; ?> </td>
                             <td><?php echo $row['product_price']; ?> </td>
                             <td>
@@ -298,10 +299,10 @@ function getNameFromId($selectedField, $tableName, $whereValue)
                                   color: black;
                                 }
                               </style>
-                              <form action="index.php" method="POST">
+                              <form action="up.php?id=<?php echo $row['id']; ?>" method="POST">
                                 <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                 <button type="submit" name="delete_btn" class="btn btn-danger">
-                                  <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a></button>
+                                  Delete</button>
                               </form>
                             </td>
                           </tr>
@@ -322,7 +323,8 @@ function getNameFromId($selectedField, $tableName, $whereValue)
               <div class="row">
                 <div class="col-md-12">
                   <div class="copyright">
-                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                  <p>Copyright © 2021 Furnitica. All rights reserved.</p>
+
                   </div>
                 </div>
               </div>

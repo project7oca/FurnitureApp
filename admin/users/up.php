@@ -25,10 +25,10 @@ try {
 
 $connect = mysqli_connect("localhost", "root", "", "project7");
 
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $value = $_GET["id"];
+    echo $value;
     try {
-
         $deleteQuery = $pdo->prepare("DELETE FROM users WHERE id='$value' ");
         $deleteQuery->execute();
         header('location: index.php');

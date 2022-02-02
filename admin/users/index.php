@@ -240,7 +240,7 @@ if (isset($_GET["error"])) {
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
-                          <th> ID </th>
+                          <th> No. </th>
                           <th> full name </th>
                           <th> email </th>
                           <th> phone </th>
@@ -251,12 +251,14 @@ if (isset($_GET["error"])) {
                       </thead>
                       <tbody>
                         <?php
+                        $counter = 1;
 
                         if (mysqli_num_rows($query_run) > 0)
                           while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
                           <tr>
-                            <td><?php echo $row['id']; ?> </td>
+                            <td><?php echo $counter;
+                                $counter++ ?> </td>
                             <td><?php echo $row['fullname']; ?> </td>
                             <td><?php echo $row['email']; ?> </td>
                             <td><?php echo $row['phone']; ?> </td>
@@ -274,10 +276,11 @@ if (isset($_GET["error"])) {
                             <td>
                               <?php if ($row['userRole'] != 1) {
                               ?>
-                                <form action="index.php" method="POST">
+                                <form action="up.php?id=<?php echo $row['id']; ?>" method="POST">
+
                                   <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                   <button type="submit" name="delete_btn" class="btn btn-danger">
-                                    <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a></button>
+                                    Delete</button>
                                 </form>
                               <?php
 
@@ -291,18 +294,6 @@ if (isset($_GET["error"])) {
                           echo "No Record Found";
                         }
                         ?>
-                        <?php
-                        if (isset($_POST['delete_btn'])) {
-
-                          $id = $_POST['delete_id'];
-                          $query = "DELETE FROM users WHERE id =$id";
-                          $query_run = mysqli_query($connection, $query);
-
-
-                          header("Location: index.php");
-                        }
-
-                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -313,7 +304,8 @@ if (isset($_GET["error"])) {
               <div class="row">
                 <div class="col-md-12">
                   <div class="copyright">
-                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                  <p>Copyright © 2021 Furnitica. All rights reserved.</p>
+
                   </div>
                 </div>
               </div>

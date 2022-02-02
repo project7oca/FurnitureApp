@@ -3,7 +3,7 @@ session_start();
 
 include('../../config/functions.php');
 if (!isLoggedIn()) {
-    header('location: ../index.php');
+  header('location: ../index.php');
 }
 if (!isAdmin()) {
   header('location: ../index.php');
@@ -45,7 +45,11 @@ if (isset($_GET["error"])) {
 
   <!-- Main CSS-->
   <link href="../css/theme.css" rel="stylesheet" media="all">
-
+  <style>
+    a {
+      color: black;
+    }
+  </style>
 </head>
 
 <body class="animsition">
@@ -62,23 +66,6 @@ if (isset($_GET["error"])) {
       <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
           <ul class="list-unstyled navbar__list">
-            <!-- <li class="has-sub">
-              <a class="js-arrow" href="#">
-                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-              <ul class="list-unstyled navbar__sub-list js-sub-list">
-                <li>
-                  <a href="index.html">Dashboard 1</a>
-                </li>
-                <li>
-                  <a href="index2.html">Dashboard 2</a>
-                </li>
-                <li>
-                  <a href="index3.html">Dashboard 3</a>
-                </li>
-                <li>
-                  <a href="index4.html">Dashboard 4</a>
-                </li>
-              </ul> -->
             </li>
             <li>
               <a href="../index.php">
@@ -111,7 +98,7 @@ if (isset($_GET["error"])) {
 
     <!-- PAGE CONTAINER-->
     <div class="page-container">
-    <?php include_once("../adminNav.php")?>
+      <?php include_once("../adminNav.php") ?>
 
 
       <!-- MAIN CONTENT-->
@@ -137,7 +124,7 @@ if (isset($_GET["error"])) {
                     <table class="table table-borderless table-data3">
                       <thead>
                         <tr>
-                          <th> ID </th>
+                          <th> No. </th>
                           <th>category name</th>
                           <th>EDIT</th>
                           <th>DELETE</th>
@@ -145,12 +132,13 @@ if (isset($_GET["error"])) {
                       </thead>
                       <tbody>
                         <?php
-
+                        $counter = 1;
                         if (mysqli_num_rows($query_run) > 0)
                           while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
                           <tr>
-                            <td><?php echo $row['id']; ?> </td>
+                            <td><?php echo $counter;
+                                $counter++ ?> </td>
                             <td><?php echo $row['category_name']; ?> </td>
                             <td>
                               <form action="edit.php" method="POST">
@@ -159,15 +147,11 @@ if (isset($_GET["error"])) {
                               </form>
                             </td>
                             <td>
-                              <style>
-                                a {
-                                  color: black;
-                                }
-                              </style>
-                              <form action="index.php" method="POST">
+                              <form action="up.php?id=<?php echo $row['id']; ?>" method="POST">
                                 <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                 <button type="submit" name="delete_btn" class="btn btn-danger">
-                                  <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a></button>
+                                  Delete
+                                </button>
                               </form>
                             </td>
                           </tr>
@@ -187,7 +171,7 @@ if (isset($_GET["error"])) {
               <div class="row">
                 <div class="col-md-12">
                   <div class="copyright">
-                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    <p>Copyright © 2021 Furnitica. All rights reserved.</p>
                   </div>
                 </div>
               </div>

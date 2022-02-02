@@ -14,18 +14,18 @@ if (!isAdmin()) {
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPassword = "";
-$dbName = "project7"; 
+$dbName = "project7";
 
 try {
     $dsn = "mysql:host=" . $dbHost . ";dbname=" . $dbName;
-    $pdo = new PDO($dsn, $dbUser, $dbPassword); 
+    $pdo = new PDO($dsn, $dbUser, $dbPassword);
 } catch (PDOException $e) {
     echo "DB Connection Failed" . $e->getMessage();
 }
 
 $connect = mysqli_connect("localhost", "root", "", "project7");
 
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $value = $_GET["id"];
     try {
 
