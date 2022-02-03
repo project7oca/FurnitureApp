@@ -131,6 +131,11 @@ function lastOrder($id)
   <!-- Template CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/reponsive.css">
+  <style>
+    textarea{
+      resize: none;
+    }
+  </style>
 </head>
 
 <body class="product-checkout checkout-cart">
@@ -189,7 +194,7 @@ function lastOrder($id)
                               </div>
 
                               <div class="form-group row">
-                                <input class="form-control" name="address" type="text" placeholder="Address" required>
+                                <textarea class="form-control" name="address" placeholder="Address" required ></textarea>
                               </div>
 
                               <div class="form-group row check-input">
