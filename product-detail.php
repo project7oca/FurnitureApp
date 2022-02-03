@@ -88,10 +88,10 @@ if (isset($_POST['newUserReview'])) {
  <!-- Basic Page Needs -->
  <meta charset="utf-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <title>Furnitica - Minimalist Furniture HTML Template</title>
+ <title>Furnitica</title>
 
  <meta name="keywords" content="Furniture, Decor, Interior">
- <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
+ <meta name="description" content="Furnitica">
  <meta name="author" content="tivatheme">
 
 
@@ -110,6 +110,7 @@ if (isset($_POST['newUserReview'])) {
  <link rel="stylesheet" href="libs/font-material/css/material-design-iconic-font.min.css">
  <link rel="stylesheet" href="libs/slider-range/css/jslider.css">
  <link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css">
+<link rel="icon" href="https://static.wixstatic.com/media/2cd43b_587ade5a9fb742809b0b85b05ee97de2~mv2.png/v1/fill/w_195,h_300,q_90/2cd43b_587ade5a9fb742809b0b85b05ee97de2~mv2.png">
 
  <!-- Template CSS -->
  <link rel="stylesheet" type="text/css" href="css/style.css">
