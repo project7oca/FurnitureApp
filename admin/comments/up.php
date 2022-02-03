@@ -31,4 +31,15 @@ if($_SERVER["REQUEST_METHOD"] == 'GET') {
             $deleteQuery->execute();
             header('location: index.php');
 }
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    $value = $_GET["id"];
+    try {
+
+        $deleteQuery = $pdo->prepare("DELETE FROM comments WHERE id='$value' ");
+        $deleteQuery->execute();
+        header('location: index.php');
+    } catch (PDOException $e) {
+        header('location: index.php?error=1');
+    }
+}
 ?>

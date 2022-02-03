@@ -70,44 +70,7 @@ if (!isAdmin()) {
     <div class="page-wrapper">
 
         <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="../images/logo.png" alt=" Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-
-                        </li>
-                        <li>
-                            <a href="../index.php">
-                                <i class="fas fa-chart-bar"></i>main</a>
-                        </li>
-                        <li>
-                            <a href="../categories/index.php">
-                                <i class="fas fa-chart-bar"></i>categories</a>
-                        </li>
-                        <li class="active">
-                            <a href="../users/index.php">
-                                <i class="fas fa-table"></i>users</a>
-                        </li>
-                        <li>
-                            <a href="../comments/index.php">
-                                <i class="far fa-check-square"></i>comments</a>
-                        </li>
-                        <li>
-                            <a href="../orders/index.php">
-                                <i class="fas fa-calendar-alt"></i>orders</a>
-                        </li>
-                        <li>
-                            <a href="../products/index.php">
-                                <i class="fas fa-map-marker-alt"></i>products</a>
-                        </li>
-
-            </div>
-        </aside>
+        <?php include_once("../sidebar.php")?>
         <!-- END MENU SIDEBAR-->
 
         <div class="page-container">

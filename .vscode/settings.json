@@ -1,0 +1,7 @@
+{
+    "html.hover.references": false,
+    "css.hover.references": false,
+    "less.hover.references": false,
+    "editor.hover.enabled": false,
+    "scss.hover.references": false
+}

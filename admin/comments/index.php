@@ -61,60 +61,7 @@ function getNameFromId($selectedField, $tableName, $whereValue)
 
 
     <!-- MENU SIDEBAR-->
-    <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
-        <a href="#">
-          <img src="../images/logo.png" alt="Cool Admin" />
-        </a>
-      </div>
-      <div class="menu-sidebar__content js-scrollbar1">
-        <nav class="navbar-sidebar">
-          <ul class="list-unstyled navbar__list">
-            <!-- <li class="has-sub">
-              <a class="js-arrow" href="#">
-                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-              <ul class="list-unstyled navbar__sub-list js-sub-list">
-                <li>
-                  <a href="index.html">Dashboard 1</a>
-                </li>
-                <li>
-                  <a href="index2.html">Dashboard 2</a>
-                </li>
-                <li>
-                  <a href="index3.html">Dashboard 3</a>
-                </li>
-                <li>
-                  <a href="index4.html">Dashboard 4</a>
-                </li>
-              </ul> -->
-            </li>
-            <li>
-              <a href="../index.php">
-                <i class="fas fa-chart-bar"></i>main</a>
-            </li>
-            <li>
-              <a href="../categories/index.php">
-                <i class="fas fa-chart-bar"></i>categories</a>
-            </li>
-            <li class="active">
-              <a href="../users/index.php">
-                <i class="fas fa-table"></i>users</a>
-            </li>
-            <li>
-              <a href="../comments/index.php">
-                <i class="far fa-check-square"></i>comments</a>
-            </li>
-            <li>
-              <a href="../orders/index.php">
-                <i class="fas fa-calendar-alt"></i>orders</a>
-            </li>
-            <li>
-              <a href="../products/index.php">
-                <i class="fas fa-map-marker-alt"></i>products</a>
-            </li>
-
-      </div>
-    </aside>
+    <?php include_once("../sidebar.php") ?>
     <!-- END MENU SIDEBAR-->
 
     <!-- PAGE CONTAINER-->
@@ -169,31 +116,22 @@ function getNameFromId($selectedField, $tableName, $whereValue)
                                 color: black;
                               }
                             </style>
-                            <form action="index.php" method="POST">
+                            <form action="up.php?id=<?php echo $row['id']; ?>" method="POST">
                               <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                              <button type="submit" name="delete_btn" class="btn btn-danger"> Delete</button>
-                              <!-- <a href='./up.php?id=<?php echo $row['id']; ?>'> Delete</a> -->
+                              <button type="submit" name="delete_btn" class="btn btn-danger">
+                                Delete
+                              </button>
                             </form>
+
                           </td>
                         </tr>
                       <?php
                         }
                       else {
-                        echo "No Record Found";
+                        echo "No Comments Found";
                       }
                       ?>
-                      <?php
-                      if (isset($_POST['delete_btn'])) {
 
-                        $id = $_POST['delete_id'];
-                        $query = "DELETE FROM comments WHERE id =$id";
-                        $query_run = mysqli_query($connection, $query);
-
-                        echo "<script>
-           window.location.href='index.php';
-            </script>";
-                        // header("Location:index.php");
-                      } ?>
                     </tbody>
                   </table>
                 </div>

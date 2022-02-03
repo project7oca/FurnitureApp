@@ -48,60 +48,7 @@ if (!isAdmin()) {
   <div class="page-wrapper">
 
     <!-- MENU SIDEBAR-->
-    <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
-        <a href="#">
-          <img src="../images/logo.png" alt=" Cool Admin" />
-        </a>
-      </div>
-      <div class="menu-sidebar__content js-scrollbar1">
-        <nav class="navbar-sidebar">
-          <ul class="list-unstyled navbar__list">
-            <!-- <li class="has-sub">
-              <a class="js-arrow" href="#">
-                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-              <ul class="list-unstyled navbar__sub-list js-sub-list">
-                <li>
-                  <a href="index.html">Dashboard 1</a>
-                </li>
-                <li>
-                  <a href="index2.html">Dashboard 2</a>
-                </li>
-                <li>
-                  <a href="index3.html">Dashboard 3</a>
-                </li>
-                <li>
-                  <a href="index4.html">Dashboard 4</a>
-                </li>
-              </ul> -->
-            </li>
-            <li>
-              <a href="../index.php">
-                <i class="fas fa-chart-bar"></i>main</a>
-            </li>
-            <li>
-              <a href="../categories/index.php">
-                <i class="fas fa-chart-bar"></i>categories</a>
-            </li>
-            <li class="active">
-              <a href="../users/index.php">
-                <i class="fas fa-table"></i>users</a>
-            </li>
-            <li>
-              <a href="../comments/index.php">
-                <i class="far fa-check-square"></i>comments</a>
-            </li>
-            <li>
-              <a href="../orders/index.php">
-                <i class="fas fa-calendar-alt"></i>orders</a>
-            </li>
-            <li>
-              <a href="../products/index.php">
-                <i class="fas fa-map-marker-alt"></i>products</a>
-            </li>
-
-      </div>
-    </aside>
+    <?php include_once("../sidebar.php") ?>
     <!-- END MENU SIDEBAR-->
 
     <div class="page-container">
@@ -161,45 +108,46 @@ if (!isAdmin()) {
                     </div>
                     <label> product_image </label>
                     <input type="text" name="product_image-edit" class="form-control" value=<?php echo $row['product_image'] ?> placeholder="product_image">
+
+
+                    <div class="input-group">
+                      <div class="input-group">product_image</div>
+                      <input type="text" id="product_image" name="product_image" class="form-control">
+                      <div class="input-group">
+
+                      </div>
+                    </div>
+                    <div class='form-group'>
+                      <label> categories </label>
+                      <select name='category_id-edit' class='form-control' required>
+
+
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+
+                        try {
+                          $conn = new PDO("mysql:host=$servername;dbname=project7", $username, $password);
+                          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        } catch (PDOException $e) {
+                          echo "Connection failed: " . $e->getMessage();
+                        }
+
+                        $sql = "SELECT * FROM categories";
+                        $data = $conn->query($sql);
+                        $data = $data->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($data as $row) {
+                          echo "<option value='{$row['id']}'>{$row['category_name']}</option>";
+                        }
+
+                        ?>
+                      </select>
+                    </div>
+                    <button><a href="index.php" class="btn btn-danger"> CANCEL </a></button>
+                    <button name='update' class="btn btn-primary"> Update </button>
+                  </form>
                 </div>
-
-                <div class="input-group">
-                  <div class="input-group">product_image</div>
-                  <input type="text" id="product_image" name="product_image" class="form-control">
-                  <div class="input-group">
-
-                  </div>
-                </div>
-                <div class='form-group'>
-                  <label> categories </label>
-                  <select name='category_id-edit' class='form-control' required>
-
-                </div>
-                <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-
-                try {
-                  $conn = new PDO("mysql:host=$servername;dbname=project7", $username, $password);
-                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                } catch (PDOException $e) {
-                  echo "Connection failed: " . $e->getMessage();
-                }
-
-                $sql = "SELECT * FROM categories";
-                $data = $conn->query($sql);
-                $data = $data->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($data as $row) {
-                  echo "<option value='{$row['id']}'>{$row['category_name']}</option>";
-                }
-
-                ?>
-                </select>
-
-                <button><a href="index.php" class="btn btn-danger"> CANCEL </a></button>
-                <button name='update' class="btn btn-primary"> Update </button>
-                </form>
             <?php
           }
         }

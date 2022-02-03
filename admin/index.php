@@ -160,6 +160,8 @@ if (!isAdmin()) {
                                 <i class="fa fa-boxes"></i>Products</a>
                         </li>
 
+                    </ul>
+                </nav>
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
@@ -301,7 +303,7 @@ if (!isAdmin()) {
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
+                                                <i class="fa fa-comments"></i>
                                                 <div class="text">
                                                     <?php
                                                     $connection = mysqli_connect("localhost", "root", "", "project7");

@@ -57,43 +57,7 @@ if (isset($_GET["error"])) {
 
 
     <!-- MENU SIDEBAR-->
-    <aside class="menu-sidebar d-none d-lg-block">
-      <div class="logo">
-        <a href="#">
-          <img src="../images/logo.png" alt=" Cool Admin" />
-        </a>
-      </div>
-      <div class="menu-sidebar__content js-scrollbar1">
-        <nav class="navbar-sidebar">
-          <ul class="list-unstyled navbar__list">
-            </li>
-            <li>
-              <a href="../index.php">
-                <i class="fas fa-chart-bar"></i>main</a>
-            </li>
-            <li>
-              <a href="../categories/index.php">
-                <i class="fas fa-chart-bar"></i>categories</a>
-            </li>
-            <li class="active">
-              <a href="../users/index.php">
-                <i class="fas fa-table"></i>users</a>
-            </li>
-            <li>
-              <a href="../comments/index.php">
-                <i class="far fa-check-square"></i>comments</a>
-            </li>
-            <li>
-              <a href="../orders/index.php">
-                <i class="fas fa-calendar-alt"></i>orders</a>
-            </li>
-            <li>
-              <a href="../products/index.php">
-                <i class="fas fa-map-marker-alt"></i>products</a>
-            </li>
-
-      </div>
-    </aside>
+    <?php include_once("../sidebar.php") ?>
     <!-- END MENU SIDEBAR-->
 
     <!-- PAGE CONTAINER-->
@@ -106,9 +70,8 @@ if (isset($_GET["error"])) {
         <div class="section__content section__content--p30">
           <div class="container-fluid">
             <div class="table-data__tool-right">
-              <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                <a href="create.php">add item</a>
-                <i class="zmdi zmdi-plus"> </i></button>
+              <a class="au-btn au-btn-icon au-btn--green au-btn--small" href="create.php"><i class="zmdi zmdi-plus"> </i> add item </a>
+
               <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                 <div class="dropDownSelect2"></div>
               </div>
